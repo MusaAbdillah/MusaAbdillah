@@ -1,0 +1,64 @@
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">Menu</div>
+      <!---->
+
+      <!-- Stocks parent collapse -->
+      <div class="list-group">
+        <%= link_to new_kategori_path, class: "list-group-item" do %> 
+          <i class="glyphicon glyphicon-plus"> Tambah Kategori</i>
+          <% end %>
+          <%= link_to new_stok_path, class: "list-group-item" do %> 
+          <i class="glyphicon glyphicon-plus"> Tambah Stok</i>
+          <% end %>         
+
+      </div>
+
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Tambah Stok </div>
+  <div class="panel-body">
+  
+  <div class="col-md-9">
+    <%= form_for(@stok) do |s| %>
+    <!-- error explanation-->
+    
+    <div class="form-group">
+    <%= s.label :gambar, class: "control-label"%>
+    <%= s.file_field :gambar %>
+    <p id="passwordHelpBlock" class="form-text text-muted">
+      File gambar harus berekstensi jpg, jpeg atau png.
+    </p>
+    </div>
+    <div class="form-group">
+    <%= s.label :nama, class: "control-label"%>
+    <%= s.text_field :nama, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+    <%= s.label :harga_beli, class: "control-label"%>
+    <%= s.text_field :harga_beli, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= s.label :harga_jual, class: "control-label"%>
+    <%= s.text_field :harga_jual, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= s.label :jumlah, class: "control-label"%>
+    <%= s.number_field :jumlah, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= s.label :kategori_id, class: "control-label"%>
+    <%= s.collection_select 'kategori_id', Kategori.all, :id, :nama, {prompt: "Silahkan pilih Kategori"}, {class: "form-control"} %>
+    </div>
+    <%= s.submit "Simpan", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+  </div>
+  </div>
+  </div><!-- col-md-10 -->
+
+

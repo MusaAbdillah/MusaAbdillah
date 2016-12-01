@@ -1,0 +1,56 @@
+<%= render 'layouts/global_nav' %>
+<div class="jumbotron">
+<h1> 
+	<%= @kategori.nama %> 
+</h1>
+	<%= link_to edit_kategori_path(@kategori),class: "btn btn-default btn-sm" do %>
+              <i class="glyphicon glyphicon-wrench"></i> 
+              <% end %>
+
+	<%= link_to @kategoris, method: :delete, data: {title: "Pertanyaan", confirm: "Apakah anda yakin akan menghapus kategori #{@kategori.nama}?" },class: "btn btn-default btn-sm" do %>
+              <i class="glyphicon glyphicon-trash"></i> 
+              <% end %>
+<p> <small><%= @kategori.deskripsi %></small> </p>
+</div>
+<!-- navigasi show method -->
+<div class="navbar navbar-default">
+	<ul class="nav nav-tabs">
+		<li role="presentation" class="active"><a href="#">Lihat Stok <%= "#{@kategori.nama}" %></a></li>
+		<li role="presentation"><%= link_to 'Tambah Stok',new_kategori_stok_path(@kategori) %></li>
+		<li role="presentation"><a href="#">Masukkan Penjualan</a></li>
+	</ul>
+</div>
+<!-- panel stok -->
+<div class="col-md-12 col-sm-12">
+<div class="panel panel-default ">
+	<div class="panel panel-heading">
+		Daftar stok <%= @kategori.nama %>
+	</div>
+	<div class="panel panel-body">
+		<div class="row">
+		<% @stoks.each do |s| %>
+			<div class="col-xs-3 col-md-3">
+			<div class="thumbnail">
+				<%= link_to (image_tag s.gambar_url(:normal)),stok_path(s) %>
+			<div class="caption">
+				<h3>Rp <%= number_with_delimiter(s.harga_jual, :delimiter => '.' )  %></h3>
+				<p><%= s.nama.truncate_words(5) %></p>
+			</div>
+			</div>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</div>
+	<!--navigasi halaman -->
+<nav class="pagination pull-right">
+    <ul class="pagination-xs">
+    <nav aria-label="...">
+      <ul class="pager">
+        <li><%= link_to_previous_page (@stoks),'Sebelumnya' %></li>
+        <li><%= link_to_next_page (@stoks),'Selanjutnya' %></li>
+      </ul>
+    </nav>
+    </ul>
+  </nav>
+</div>

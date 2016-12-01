@@ -1,0 +1,56 @@
+<%= render 'layouts/global_nav' %>
+
+
+<!-- panel stok -->
+<div class="col-md-12 col-sm-12" style="padding-top:100px;">
+ <!-- searching & Sorting navigation  -->
+  <nav class="navbar">
+      <div class="input-group col-md-6">
+        <%= search_form_for @search do |f| %>
+            <%= f.text_field :nama_cont, placeholder: "cari stok", class: "form-control" %>
+          <span class="input-group-btn">
+          <%= f.submit "Cari" , class: "btn btn-default" %>
+          </span>
+          <% end %>
+      </div><!-- /input-group -->
+    </nav>   
+
+    
+<div class="panel panel-default ">
+  <div class="panel-heading">
+    <h3>Daftar stok</h3> 
+  </div>
+  <div class="panel-body">
+    <% @stoks.each do |s| %>
+      <div class="col-md-3 col-sm-3">
+        <div class="panel panel-default">
+        <div class="panel panel-body">
+        <%= link_to (image_tag s.gambar_url(:normal)), stok_path(s), class: "thumbnail"%>
+        </div>
+        <div class="panel panel-footer">
+        <!-- delimiter untuk format mata uang -->
+        <h3 style="color:red;">Rp <%= number_with_delimiter(s.harga_jual, :delimiter => '.' ) %></h3>
+        <!-- truncate_words untuk membatasi karakter -->
+        <p><%= s.nama.truncate_words(7) %></p>
+      </div>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  <nav class="pagination pull-right">
+    <ul class="pagination-xs">
+    <nav aria-label="...">
+      <ul class="pager">
+        <li><%= link_to_previous_page (@stoks),'Sebelumnya' %></li>
+        <li><%= link_to_next_page (@stoks),'Selanjutnya' %></li>
+      </ul>
+    </nav>
+    </ul>
+  </nav>
+
+</div>
+
+
+

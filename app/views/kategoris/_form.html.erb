@@ -1,0 +1,49 @@
+ <div class="col-md-3">
+ <div class="panel panel-default">
+      <div class="panel-heading text-center">Menu</div>
+      <!---->
+
+      <!-- Stocks parent collapse -->
+      <div class="list-group">
+        <%= link_to new_kategori_path, class: "list-group-item" do %> 
+          <i class="glyphicon glyphicon-plus"> Tambah Kategori</i>
+          <% end %>
+          <%= link_to new_stok_path, class: "list-group-item" do %> 
+          <i class="glyphicon glyphicon-plus"> Tambah Stok</i>
+          <% end %>         
+
+      </div>
+
+    </div>
+    </div>
+
+  <!-- form -->
+  <div class="col-md-9">
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Ubah Kategori</div>
+  <div class="panel-body">
+  <div class="col-md-8">
+  <%= render 'shared/error_messages', :object => @kategori %>
+    <%= form_for(@kategori) do |k| %>
+    <!-- error explanation-->
+    
+    
+    <div class="form-group">
+    <%= k.label :gambar, class: "control-label"%>
+    <%= k.file_field :gambar %>
+    </div>
+    <div class="form-group">
+    <%= k.label :nama, class: "control-label"%>
+    <%= k.text_field :nama, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= k.label :deskripsi, class: "control-label"%>
+    <%= k.text_area :deskripsi, class: "form-control" %>
+    </div>
+    <%= k.submit "Buat", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+  </div>
+  </div>
+  </div><!-- col-md-9 -->

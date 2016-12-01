@@ -1,0 +1,10 @@
+<% if @kategori.errors.any? %>
+<div class="error_explanation">
+  <ul class="alert alert-danger fade in">
+  	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  	<% @kategori.errors.full_messages.each do |s| %>
+    	<li><%= s %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
