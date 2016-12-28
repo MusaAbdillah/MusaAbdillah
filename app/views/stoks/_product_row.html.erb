@@ -1,0 +1,23 @@
+<div class="well">
+
+  <div class="row">
+    <div class="col-xs-8">
+      <%= image_tag stok.gambar_url(:thumb), class: "img img-circle" %>
+      <h4><small><%= stok.nama %></small></h4>
+    </div>
+    
+    <div class="col-xs-4">
+      <%= form_for order_item, remote: true do |f| %>
+      <h4 class="text-right">Harga: <span style="color: #e60000;">Rp <%= number_with_delimiter(stok.harga_jual, :delimiter => '.') %></span></h4>
+        <div class="input-group">
+          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, placeholder: "jumlah" %>
+          <div class="input-group-btn">
+            <%= f.hidden_field :stok_id, value: stok.id %>
+            <%= f.submit "Tambah ke Keranjang", class: "btn btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

@@ -1,43 +1,22 @@
-<%= render 'layouts/global_nav' %>
 
-
-<!-- panel stok -->
-<div class="col-md-12 col-sm-12" style="padding-top:100px;">
  <!-- searching & Sorting navigation  -->
-  <nav class="navbar">
-      <div class="input-group col-md-6">
-        <%= search_form_for @search do |f| %>
-            <%= f.text_field :nama_cont, placeholder: "cari stok", class: "form-control" %>
-          <span class="input-group-btn">
-          <%= f.submit "Cari" , class: "btn btn-default" %>
-          </span>
-          <% end %>
-      </div><!-- /input-group -->
-    </nav>   
-
-    
-<div class="panel panel-default ">
-  <div class="panel-heading">
-    <h3>Daftar stok</h3> 
-  </div>
-  <div class="panel-body">
-    <% @stoks.each do |s| %>
-      <div class="col-md-3 col-sm-3">
-        <div class="panel panel-default">
-        <div class="panel panel-body">
-        <%= link_to (image_tag s.gambar_url(:normal)), stok_path(s), class: "thumbnail"%>
-        </div>
-        <div class="panel panel-footer">
-        <!-- delimiter untuk format mata uang -->
-        <h3 style="color:red;">Rp <%= number_with_delimiter(s.harga_jual, :delimiter => '.' ) %></h3>
-        <!-- truncate_words untuk membatasi karakter -->
-        <p><%= s.nama.truncate_words(7) %></p>
-      </div>
-      </div>
-      </div>
-    <% end %>
-  </div>
+<div class="navbar">
+<div class="col-lg-8">
+    <div class="input-group" id="form-search">
+      <%= search_form_for @search do |f| %>
+        <%= f.text_field :nama_cont, placeholder: "cari stok", class: "form-control" %>
+      <span class="input-group-btn">
+        <%= f.submit "Cari" , class: "btn btn-default", id: "btn-search" %>
+      </span>
+      <% end %>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
 </div>
+<!-- panel stok -->
+<div class="col-md-12 col-sm-12">
+    <% @stoks.each do |stok| %>
+    <%= render "product_row", stok: stok, order_item: @order_item %>
+    <% end %>
 
   <nav class="pagination pull-right">
     <ul class="pagination-xs">
@@ -51,6 +30,37 @@
   </nav>
 
 </div>
+</div>
+
+<!--ini file css -->
+<style>
+.col-md-12 {
+	padding-top:50px;
+}
+.navbar #btn-search {
+  background:#e60000;
+  color: white;
+  margin-top: 5px;
+  margin-left: 0px;
+}
+.navbar #form-search {
+  width: 50%;
+}
+
+.thumbnail{
+	width: 225px;
+  position: relative;
+  opacity:0.9;
+}
+
+.thumbnail:hover {
+ border: 0.5px solid #e60000;
+ opacity:1;
+ box-shadow: 10px 10px 5px gray;
+}
+</style>
+<!--ini file js-->
+<script>
 
 
-
+</script>

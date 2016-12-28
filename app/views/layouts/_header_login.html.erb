@@ -1,0 +1,46 @@
+    <!--Global Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#e60000;">
+      <div class="container">
+        <div class="col-sm-6">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" >AB Computer</a>
+        </div>
+        </div>
+        
+        <div class="col-sm-6">
+        <div id="navbar" class="collapse navbar-collapse pull-right">
+          <ul class="nav navbar-nav">            
+            <li><%= link_to "Daftar", new_user_registration_path %></li>
+            <li><%= link_to "Masuk", user_session_path %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+      </div>
+    </nav>
+    <style type="text/css">
+
+    .navbar-header .navbar-brand {
+      color: white;
+      font-family: arial;
+      font-weight: bold;
+    }
+    .navbar-header .navbar-brand:hover {
+      color: white;      
+    }
+
+    #navbar ul li a {
+      color: white;
+    }    
+
+    #navbar ul li a:hover {
+      color: #e60000;
+      background: white;
+    } 
+    
+    </style>  

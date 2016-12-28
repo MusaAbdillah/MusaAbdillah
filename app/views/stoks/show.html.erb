@@ -1,14 +1,12 @@
 <%= render 'layouts/global_nav' %>
-<div class="jumbotron">
-	
-</div>
-<div class="col-md-12">
+
+<div class="col-md-12" style="padding-top:50px;">
   	<div class="row">
 		<div class="col-sm-4 col-md-4">
 			<div class="thumbnail">
 				<%= image_tag @stok.gambar_url(:normal) %>
 			<div class="caption">
-				<h2 style=" text-align:center; color: red; "> <strong> Rp <%= number_with_delimiter(@stok.harga_jual, :delimiter => '.') %> </strong></h2>
+				<h2 style=" text-align:center; "> <strong> Rp <%= number_with_delimiter(@stok.harga_jual, :delimiter => '.') %> </strong></h2>
 			</div>
 			</div>
 		</div>

@@ -19,10 +19,18 @@ gem 'mini_magick', '3.8.0'
 gem 'responders', '~> 2.0'
 gem 'data-confirm-modal'
 gem 'ransack'
+gem 'devise'
+gem 'devise-i18n'
+gem "cancancan"
+gem "nested_form"
+gem 'public_activity'
+#pdf maker
+gem 'wkhtmltopdf-binary'
+gem 'pdfkit'
+
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-

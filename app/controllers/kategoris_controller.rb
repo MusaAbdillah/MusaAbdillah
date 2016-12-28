@@ -1,10 +1,11 @@
 class KategorisController < ApplicationController
   before_action :set_kategori, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /kategoris
   # GET /kategoris.json
   def index
-    @kategoris = Kategori.all
+    @kategoris = Kategori.all.order ("nama asc")
   end
 
   # GET /kategoris/1
@@ -55,6 +56,7 @@ class KategorisController < ApplicationController
 
   # DELETE /kategoris/1
   # DELETE /kategoris/1.json
+  
   def destroy
     @kategori.destroy
     respond_to do |format|

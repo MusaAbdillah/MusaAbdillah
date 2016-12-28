@@ -1,0 +1,1 @@
+<%= link_to " #{current_order.order_items.size} item(Rp #{number_with_delimiter(current_order.subtotal, :delimiter => '.')} )", cart_path, class: "nav navbar-link " %>

@@ -18,7 +18,7 @@ module ApplicationHelper
     	end)
     end
     nil
-  end
+  end 
 
   
 end

@@ -1,11 +1,13 @@
 class StoksController < ApplicationController
   before_action :set_stok, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /stoks
   # GET /stoks.json
   def index
     @search = Stok.search(params[:q])
-    @stoks = @search.result.page(params[:page]).per(12).order("nama asc")  
+    @stoks = @search.result.page(params[:page]).per(5).order("nama asc")  
+    @order_item = current_order.order_items.new
   end
 
   # GET /stoks/1
@@ -30,7 +32,7 @@ class StoksController < ApplicationController
 
     respond_to do |format|
       if @stok.save(stok_params)
-        format.html { redirect_to @stok, notice: "Stok #{@stok.nama} berhasil di buat." }
+        format.html { redirect_to @stok, flash: { success: "Stok #{@stok.nama} berhasil di buat." }}
         format.json { render :show, status: :created, location: @stok }
       else
         format.html { render :new }
@@ -55,13 +57,15 @@ class StoksController < ApplicationController
 
   # DELETE /stoks/1
   # DELETE /stoks/1.json
+  # non aktifkan method destroy
   def destroy
     @stok.destroy
     respond_to do |format|
-      format.html { redirect_to @stok, notice: "Stok #{@stok.nama} berhasil di hapus." }
+      format.html { redirect_to @stok, flash: { error: "Stok #{@stok.nama} berhasil di hapus." }}
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,59 +1,18 @@
-<style>
-textarea{
-  resize: vertical;
-}
-</style>
 
 <%= render 'layouts/global_nav' %>
-<div class="jumbotron">
-</div>
-<div class="col-md-3">
-  <div class="panel panel-default">
-      <div class="panel-heading text-center">Menu</div>
-      <!---->
-
-      <!-- Stocks parent collapse -->
-      <div class="list-group">
-        <%= link_to new_kategori_path, class: "list-group-item" do %> 
-          <i class="glyphicon glyphicon-plus"> Tambah Kategori</i>
-          <% end %>
-          <%= link_to new_stok_path, class: "list-group-item" do %> 
-          <i class="glyphicon glyphicon-plus"> Tambah Stok</i>
-          <% end %>         
-
-      </div>
-
-    </div>
-</div>
-<!-- form -->
-  <div class="col-md-9">
-    <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Tambah Kategori</div>
-  <div class="panel-body">
-  <div class="col-md-8">
-  <%= render 'shared/error_messages', :object => @stok %>
-    <%= form_for(@kategori) do |k| %>
-    <!-- error explanation-->
-    
-    <div class="form-group">
-    <%= k.label :gambar, class: "control-label"%>
-    <%= k.file_field :gambar %>
-    <p id="passwordHelpBlock" class="form-text text-muted">
-      File gambar harus berekstensi jpg, jpeg atau png.
-    </p>
-    </div>
-    <div class="form-group">
-    <%= k.label :nama, class: "control-label"%>
-    <%= k.text_field :nama, class: "form-control" %>
-    </div>
-    <div class="form-group">
-    <%= k.label :deskripsi, class: "control-label"%>
-    <%= k.text_area :deskripsi, class: "form-control vresize", id: "encJs" %>
-    </div>
-    <%= k.submit "Buat", class: "btn btn-default btn-lg" %>
-    <% end %>
-  </div>
-  </div>
-  </div>
-  </div><!-- col-md-10 -->
+<%= render 'form'%>
+<style type="text/css">
+  .col-md-12 {
+    padding-top: 50px;
+  }
+  .thumbnail {
+    height: 75px;
+    width: 75px;
+  }
+  .thumbnail img{
+    width: 100%;
+  }
+  textarea{
+  resize: vertical;
+  }
+  </style>

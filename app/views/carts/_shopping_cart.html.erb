@@ -1,0 +1,53 @@
+<% if !@order_item.nil? && @order_item.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @order_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @order_items.size == 0 %>
+  <p class="text-center">
+    tidak ada produk di keranjang.  Silahkan <%= link_to "kembali", root_path %> dan tambahkan produk ke keranjang anda.
+  </p>
+<% else %>
+  <% @order_items.each do |order_item| %>
+    <%= render 'carts/cart_row', stok: order_item.stok, order_item: order_item, show_total: true %>
+  <% end %>
+  <button class="btn btn-danger btn-lg" id="check" style="float: right; margin-right:40px; margin-bottom: 40px; color: #fff;">
+    <%= link_to "Unduh Struk (PDF)", carts_show_path(:format => "pdf"), id: "pdf_link" %>
+  </button>
+<% end %>
+<style>
+@media print {
+  body {
+    background-color: #FFF;
+  }
+
+  #container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  #line_items {
+    page-break-before: always;
+  }
+
+  #pdf_link {
+    display: none;
+  }
+}
+#check {
+  color: #e60000;
+  background-color: #fff;
+  border-color: 1px solid #e60000;
+}
+#check:hover {
+  border: 1px solid #e60000;
+  background-color: #e60000;
+  color: #fff;
+}
+</style>

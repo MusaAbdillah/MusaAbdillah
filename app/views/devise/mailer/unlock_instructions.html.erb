@@ -1,0 +1,7 @@
+<p>Selamat Datang <%= @resource.email %>!</p>
+
+<p>Akun anda di kunci karena beberapa kali anda gagal masuk.</p>
+
+<p>klik link di bawah ini untuk membuka akun anda:</p>
+
+<p><%= link_to 'Buka akun', unlock_url(@resource, unlock_token: @token) %></p>
