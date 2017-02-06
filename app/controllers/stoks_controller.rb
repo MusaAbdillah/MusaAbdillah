@@ -6,7 +6,7 @@ class StoksController < ApplicationController
   # GET /stoks.json
   def index
     @search = Stok.search(params[:q])
-    @stoks = @search.result.page(params[:page]).per(5).order("nama asc")  
+    @stoks = @search.result.page(params[:page]).per(12).order("nama asc")
     @order_item = current_order.order_items.new
   end
 

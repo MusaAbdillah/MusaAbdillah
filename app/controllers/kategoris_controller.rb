@@ -56,7 +56,7 @@ class KategorisController < ApplicationController
 
   # DELETE /kategoris/1
   # DELETE /kategoris/1.json
-  
+
   def destroy
     @kategori.destroy
     respond_to do |format|

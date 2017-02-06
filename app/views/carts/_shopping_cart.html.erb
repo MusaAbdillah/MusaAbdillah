@@ -8,16 +8,16 @@
   </div>
 <% end %>
 <% if @order_items.size == 0 %>
-  <p class="text-center">
+    <p class="text-center">
     tidak ada produk di keranjang.  Silahkan <%= link_to "kembali", root_path %> dan tambahkan produk ke keranjang anda.
-  </p>
+    </p>
 <% else %>
-  <% @order_items.each do |order_item| %>
-    <%= render 'carts/cart_row', stok: order_item.stok, order_item: order_item, show_total: true %>
-  <% end %>
-  <button class="btn btn-danger btn-lg" id="check" style="float: right; margin-right:40px; margin-bottom: 40px; color: #fff;">
-    <%= link_to "Unduh Struk (PDF)", carts_show_path(:format => "pdf"), id: "pdf_link" %>
-  </button>
+    <div class="container well">
+      <% @order_items.each do |order_item| %>
+        <%= render 'carts/cart_row', stok: order_item.stok, order_item: order_item, show_total: true %>
+      <% end %>
+      <%= link_to "Check Out", check_out_route_path(:cart), class: "btn btn-danger"%>
+    </div>
 <% end %>
 <style>
 @media print {
@@ -38,16 +38,16 @@
 
   #pdf_link {
     display: none;
+    }
   }
-}
-#check {
+  #check {
   color: #e60000;
   background-color: #fff;
   border-color: 1px solid #e60000;
-}
-#check:hover {
+  }
+  #check:hover {
   border: 1px solid #e60000;
   background-color: #e60000;
   color: #fff;
-}
+  }
 </style>

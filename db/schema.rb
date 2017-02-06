@@ -11,19 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225150307) do
-
-  create_table "barangterjuals", force: :cascade do |t|
-    t.integer  "stok_id",      limit: 4
-    t.integer  "penjualan_id", limit: 4
-    t.decimal  "jumlah",                 precision: 10
-    t.integer  "total",        limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-  end
-
-  add_index "barangterjuals", ["penjualan_id"], name: "index_barangterjuals_on_penjualan_id", using: :btree
-  add_index "barangterjuals", ["stok_id"], name: "index_barangterjuals_on_stok_id", using: :btree
+ActiveRecord::Schema.define(version: 20170127032915) do
 
   create_table "kategoris", force: :cascade do |t|
     t.string   "gambar",     limit: 255
@@ -64,16 +52,6 @@ ActiveRecord::Schema.define(version: 20161225150307) do
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
 
-  create_table "penjualans", force: :cascade do |t|
-    t.string   "nama",       limit: 255
-    t.decimal  "total",                  precision: 10
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.integer  "user_id",    limit: 4
-  end
-
-  add_index "penjualans", ["user_id"], name: "index_penjualans_on_user_id", using: :btree
-
   create_table "roles", force: :cascade do |t|
     t.string   "nama",       limit: 255
     t.datetime "created_at",             null: false
@@ -89,7 +67,6 @@ ActiveRecord::Schema.define(version: 20161225150307) do
     t.integer  "kategori_id", limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.string   "kode",        limit: 255
     t.integer  "user_id",     limit: 4
     t.boolean  "active",      limit: 1
   end
@@ -115,7 +92,8 @@ ActiveRecord::Schema.define(version: 20161225150307) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "stoks"
   add_foreign_key "orders", "order_statuses"
-  add_foreign_key "penjualans", "users"
   add_foreign_key "stoks", "users"
 end

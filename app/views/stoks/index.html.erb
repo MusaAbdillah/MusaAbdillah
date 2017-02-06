@@ -1,42 +1,45 @@
 
  <!-- searching & Sorting navigation  -->
-<div class="navbar">
-<div class="col-lg-8">
-    <div class="input-group" id="form-search">
-      <%= search_form_for @search do |f| %>
-        <%= f.text_field :nama_cont, placeholder: "cari stok", class: "form-control" %>
-      <span class="input-group-btn">
-        <%= f.submit "Cari" , class: "btn btn-default", id: "btn-search" %>
-      </span>
-      <% end %>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div>
+
 <!-- panel stok -->
+<% if @stoks.size == 0 %>
+  <p class="text-center"> Tidak ada produk yang siap di jual untuk saat ini </p>
+<% else %>
 <div class="col-md-12 col-sm-12">
+  <div class="container-fluid">
+    <div class="navbar">
+      <div class="col-lg-8">
+        <div class="input-group" id="form-search">
+          <%= search_form_for @search do |f| %>
+          <%= f.text_field :nama_cont, placeholder: "cari stok", class: "form-control" %>
+          <span class="input-group-btn">
+          <%= f.submit "Cari" , class: "btn btn-default", id: "btn-search" %>
+          </span>
+        <% end %>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div>
     <% @stoks.each do |stok| %>
-    <%= render "product_row", stok: stok, order_item: @order_item %>
-    <% end %>
+      <%= render "product_row", stok: stok, order_item: @order_item %>
+      <% end %>
+  </div>
+<% end %>
 
   <nav class="pagination pull-right">
     <ul class="pagination-xs">
-    <nav aria-label="...">
-      <ul class="pager">
-        <li><%= link_to_previous_page (@stoks),'Sebelumnya' %></li>
-        <li><%= link_to_next_page (@stoks),'Selanjutnya' %></li>
-      </ul>
-    </nav>
+      <nav aria-label="...">
+        <ul class="pager">
+          <li><%= link_to_previous_page (@stoks),'Sebelumnya' %></li>
+          <li><%= link_to_next_page (@stoks),'Selanjutnya' %></li>
+        </ul>
+      </nav>
     </ul>
   </nav>
 
 </div>
-</div>
-
 <!--ini file css -->
 <style>
-.col-md-12 {
-	padding-top:50px;
-}
+
 .navbar #btn-search {
   background:#e60000;
   color: white;
@@ -45,18 +48,6 @@
 }
 .navbar #form-search {
   width: 50%;
-}
-
-.thumbnail{
-	width: 225px;
-  position: relative;
-  opacity:0.9;
-}
-
-.thumbnail:hover {
- border: 0.5px solid #e60000;
- opacity:1;
- box-shadow: 10px 10px 5px gray;
 }
 </style>
 <!--ini file js-->

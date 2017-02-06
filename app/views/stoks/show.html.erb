@@ -1,7 +1,10 @@
 <%= render 'layouts/global_nav' %>
 
-<div class="col-md-12" style="padding-top:50px;">
-  	<div class="row">
+<div class="col-md-12">
+    <div class="col-md-10">
+    <h3><strong><%= @stok.nama %></strong></h3>
+  </div>
+    <div class="row">
 		<div class="col-sm-4 col-md-4">
 			<div class="thumbnail">
 				<%= image_tag @stok.gambar_url(:normal) %>
@@ -11,14 +14,9 @@
 			</div>
 		</div>
 
-		<div class="col-sm-8 col-md-8">
+		<div class="col-sm-6 col-md-6">
 			<!-- table-->
   		<table class="table table-default">
-		<thead>
-			<tr>
-				<th class="text-center" colspan="2">  <h3><strong><%= @stok.nama %></strong></h3> </th>
-			</tr>			
-		</thead>
 		<tbody>
 			<tr>
 				<td> <strong> Harga Beli </strong> </td>
@@ -27,7 +25,7 @@
 			<tr>
 				<!-- number_with_delimiter used for sparate integer to currency format-->
 				<td> <strong> Jumlah </strong> </td>
-				<td> <%= @stok.jumlah %> </td>
+				<td> <%= @stok.sum_of_jumlah %> </td>
 			</tr>
 			<tr>
 				<td> <strong> Keuntungan </strong></td>
@@ -38,38 +36,24 @@
 				<td> <strong> Kategori </strong></td>
 				<td> <%= @stok.kategori.nama %> </td>
 			</tr>
-			<tr>
-				<td> <strong> Aksi </strong> </td>
-				<td>
-					<!-- Action dropdown button -->
-					<div class="btn-group">
-  						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    					Ubah <span class="caret"></span>
-  						</button>
-  						<ul class="dropdown-menu">
-    						<li> 
-    							<%= link_to edit_stok_path(@stok),:method => "get" do %> 
-    								<i class="glyphicon glyphicon-pencil"></i> Sunting
-									<% end %>
-    						</li>
-    						<li> 
-    							<%= link_to @stoks,method: :delete, data: {title: "confirmation?", confirm: "Apakah anda yakin akan menghapus stok #{@stok.nama} ?"} do %> 
-    								<i class="glyphicon glyphicon-trash"></i> Hapus
-									<% end %>
-    						</li>
-    					</ul>
-					</div>
-				</td>						 
-			</tr>
 		</tbody>
-	</table>	
-			
+	</table>
+
 		</div>
+    <div class="col-md-2">
+          <%= link_to edit_stok_path(@stok),:method => "get", class: "btn btn-default btn-block" do %>
+            <i class="glyphicon glyphicon-pencil"></i> Sunting
+          <% end %>
+
+          <%= link_to @stoks,method: :delete, data: {title: "confirmation?", confirm: "Apakah anda yakin akan menghapus stok #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
+            <i class="glyphicon glyphicon-trash"></i> Hapus
+          <% end %>
+    </div>
 
 	</div>
   </div><!-- col-md-12 -->
 
   <!-- javascript for dropdown -->
   <script type="text/javascript">
-  	$('.dropdown-toggle').dropdown() 
+  	$('.dropdown-toggle').dropdown()
   </script>

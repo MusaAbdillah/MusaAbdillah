@@ -1,7 +1,11 @@
 <%= render 'layouts/global_nav' %>
-
-<div class="col-md-12 col-sm-12" >
-
+<% if @kategoris.size == 0 %>
+  <p class="text-center">
+    <i>Tidak ada kategori yang tersedia untuk saat ini</i>
+    <strong><%= link_to "Tambah Kategori", new_kategori_path(@kategori)%></strong>
+  </p>
+<% else %>
+  <div class="col-md-12 col-sm-12" >
     <div class="col-md-12 col-sm-12">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -20,12 +24,11 @@
           </div>
       </div>
     </div>
-    </div>
+  </div>
+  <% end %>
     <!--ini file css -->
 <style>
-.col-md-12 {
-  padding-top:50px;
-}
+
 
 .panel-body #pbody{
   height: 75px;

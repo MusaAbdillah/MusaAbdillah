@@ -1,0 +1,32 @@
+<% if @orders.size == 0 %>
+  <p class="text-center">
+    Tidak ada transaksi yang tercatat untuk saat ini
+  </p>
+<% else %>
+<div class="container">
+  <h3>Daftar Transaksi</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td><strong>Id</strong></td>
+      <td><strong>Status</strong></td>
+      <td><strong>Total Transaksi</strong></td>
+      <td><strong>Tanggal</strong></td>
+      <td colspan="2"><strong>Link</strong></td>
+    </tr>
+  </thead>
+  <% @orders.each do |o| %>
+  <tbody>
+    <tr>
+      <td><%= o.id %></td>
+      <td><%= o.order_status.nama %></td>
+      <td><%= number_with_delimiter(o.total, :delimiter => '.') %></td>
+      <td><%= o.created_at %></td>
+      <td><%= link_to "detail", order_path(o)%></td>
+      <td><%= link_to "del", delete_order_path(o) %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+</div>
+<% end %>

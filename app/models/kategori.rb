@@ -1,5 +1,5 @@
 class Kategori < ActiveRecord::Base
-	has_many :stoks
+	has_many :stoks, dependent: :destroy
 	mount_uploader :gambar, AvatarUploader
 	validates_presence_of :nama, :deskripsi, :message => "tidak boleh di kosongkan!"
 	validates_uniqueness_of :nama, :message => "nama tidak boleh sama"

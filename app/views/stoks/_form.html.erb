@@ -1,16 +1,15 @@
   <div class="col-md-8 col-md-offset-2">
+    <h1>Form Stok</h1>
     <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading text-center" style="background-color: #e60000; color: #fff;"><h4>Tambah Stok</h4> </div>
-  <div class="panel-body">
+    <div class="panel-body">
 
-  <div class="col-md-9">
+      <div class="col-md-9">
     <div class="thumbnail">
       <%= image_tag @stok.gambar_url(:thumb) %>
     </div>
     <%= form_for(@stok) do |s| %>
     <!-- error explanation-->
-    <div class="form-horizontal">
     <div class="form-group">
     <%= s.label :gambar, class: "control-label"%>
     <%= s.file_field :gambar %>
@@ -45,14 +44,10 @@
   </div>
   </div>
   </div>
-  </div>
   </div><!-- col-md-12 -->
 
   <style type="text/css">
 
-  .col-md-12 {
-    padding-top:50px;
-  }
   .thumbnail {
     height: 75px;
     width: 75px;

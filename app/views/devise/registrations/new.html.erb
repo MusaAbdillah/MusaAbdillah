@@ -1,6 +1,6 @@
 <div class="col-md-12 col-sm-12">
 <div class="container">
-<div class="col-md-6 col-sm-6" id="grid-right">
+<div class="col-md-6 col-sm-6 col-md-offset-3" id="grid-right">
 <h2>Daftar</h2>
   <div class="form">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -30,7 +30,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Daftar", class: "btn btn-default btn-lg" %>
+    <%= f.submit "Daftar", class: "btn btn-default btn-lg btn-block" %>
   </div>
 <% end %>
 </div><!-- form -->
@@ -40,9 +40,6 @@
 </div>
 <style type="text/css">
 
-  #grid-right {
-      border-right: 1px dashed #e60000;
-    }
-    
-</style>
 
+
+</style>

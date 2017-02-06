@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
-  get 'order_items/create'
-
-  get 'order_items/update'
-
-  get 'order_items/destroy'
-
-  get 'carts/show'
-
   root 'stoks#index'
+  get 'order_items/create'
+  get 'order_items/update'
+  get 'order_items/destroy'
+  get 'carts/show'
+  get 'orders/:id/destroy' => 'orders#destroy', as: :delete_order
+  delete 'orders/:id' => 'orders#destroy'
+  get 'check_outs' => 'carts#check_out', as: :check_out_route
+
   devise_for :users, controllers: { sessions: 'users/sessions' }
   resources :stoks
   resources :kategoris
   resource :cart, only: [:show]
-  resources :order_items, only: [:create, :update, :destroy]
-  
+  resources :order_items, only: [:index, :create, :update, :destroy]
+  resources :orders, only: [:index, :show, :destroy]
+
+
   resources :kategoris do
     resources :stoks
   end
