@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 gem 'rails', '4.2.0'
 # Use mysql as the database for Active Record
 gem 'sass-rails', '~> 5.0'
@@ -31,9 +30,13 @@ group :development do
   gem 'mysql2', '~> 0.3.18'
 end
 
-
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
 end
