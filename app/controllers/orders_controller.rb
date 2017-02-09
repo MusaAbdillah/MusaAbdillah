@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html {redirect_to '/stoks'}
+      format.html {redirect_to '/orders', flash: { error: "Transaksi #{@order.id} berhasil di hapus." }}
     end
   end
 

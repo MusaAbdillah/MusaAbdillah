@@ -6,14 +6,14 @@
       <div class="panel-body">
         <div class="col-md-8">
           <%= render 'shared/error_messages', :object => @kategori %>
-          <div class="thumbnail">
-            <%= image_tag @kategori.gambar_url(:thumb) %>
+          <div class="thumbnail-form">
+            <%= image_tag @kategori.gambar_url(:thumb), id: "image-preview" %>
           </div>
           <%= form_for(@kategori) do |k| %>
           <!-- error explanation-->
             <div class="form-group">
               <%= k.label :gambar, class: "control-label"%>
-              <%= k.file_field :gambar %>
+              <%= k.file_field :gambar, id: "image-source", onchange: "previewImage();" %>
             </div>
             <div class="form-group">
               <%= k.label :nama, class: "control-label"%>
@@ -29,14 +29,3 @@
       </div>
     </div>
   </div><!-- col-md-12 -->
-
-
-  <style type="text/css">
-  .thumbnail {
-    height: 75px;
-    width: 75px;
-  }
-  .thumbnail img{
-    width: 100%;
-  }
-  </style>

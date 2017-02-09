@@ -1,9 +1,18 @@
 
     <div class="col-md-3" id="stok">
       <div class="thumbnail">
-          <%= image_tag stok.gambar_url(:normal), class: "img img-thumbnail" %>
-        <div class="caption">
-          <h4><small><%= (stok.nama).truncate_words(7) %></small></h4>
+        <div class="row">
+          <div class="col-md-12">
+          <%= image_tag stok.gambar_url(:normal),class: "img img-thumbnail"%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="text-center"><small><%= link_to ((stok.nama).truncate_words(3)), stok_path(stok) %></small></h4>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
           <%= form_for order_item, remote: true do |f| %>
             <h4 class="text-center">Harga: <span style="color: #e60000;">Rp <%= number_with_delimiter(stok.harga_jual, :delimiter => '.') %></span></h4>
             <div class="input-group">
@@ -17,20 +26,4 @@
         </div>
       </div>
     </div>
-
-
-    <style>
-
-    .thumbnail{
-      width: 225px;
-      height: 375px;
-      position: relative;
-      opacity:0.9;
-    }
-
-    .purchase:hover {
-     border: 0.5px solid #e60000;
-     color: #e60000;
-     background-color: transparent;
-    }
-    </style>
+  </div>

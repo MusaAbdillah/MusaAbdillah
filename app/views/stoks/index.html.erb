@@ -5,25 +5,25 @@
 <% if @stoks.size == 0 %>
   <p class="text-center"> Tidak ada produk yang siap di jual untuk saat ini </p>
 <% else %>
-<div class="col-md-12 col-sm-12">
+<div class="col-md-12">
   <div class="container-fluid">
-    <div class="navbar">
-      <div class="col-lg-8">
+      <div class="col-md-12">
         <div class="input-group" id="form-search">
           <%= search_form_for @search do |f| %>
           <%= f.text_field :nama_cont, placeholder: "cari stok", class: "form-control" %>
           <span class="input-group-btn">
-          <%= f.submit "Cari" , class: "btn btn-default", id: "btn-search" %>
+          <%= f.submit "Cari" , class: "btn btn-danger", id: "btn-search" %>
           </span>
         <% end %>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
-    </div>
+
     <% @stoks.each do |stok| %>
       <%= render "product_row", stok: stok, order_item: @order_item %>
       <% end %>
-  </div>
+
 <% end %>
+</div>
 
   <nav class="pagination pull-right">
     <ul class="pagination-xs">
@@ -40,14 +40,19 @@
 <!--ini file css -->
 <style>
 
-.navbar #btn-search {
+#btn-search {
   background:#e60000;
   color: white;
   margin-top: 5px;
+  margin-bottom: 10px;
   margin-left: 0px;
+  align:  right;
 }
-.navbar #form-search {
-  width: 50%;
+#btn-search:hover {
+  opacity: 0.8;
+}
+#form-search {
+  width: 100%;
 }
 </style>
 <!--ini file js-->

@@ -1,6 +1,6 @@
 class StoksController < ApplicationController
   before_action :set_stok, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /stoks
   # GET /stoks.json

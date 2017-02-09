@@ -31,7 +31,7 @@ class KategorisController < ApplicationController
     @stoks = @kategori.stoks
     respond_to do |format|
       if @kategori.save
-        format.html { redirect_to '/kategoris', notice: "Kategori #{@kategori.nama} berhasil di buat." }
+        format.html { redirect_to '/kategoris', flash: { success: "Kategori #{@kategori.nama} berhasil di buat." } }
         format.json { render :show, status: :created, location: @kategori }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class KategorisController < ApplicationController
   def update
     respond_to do |format|
       if @kategori.update(kategori_params)
-        format.html { redirect_to @kategori, notice: "Kategori #{@kategori.nama} berhasil di perbarui." }
+        format.html { redirect_to '/kategoris', flash: { success: "Kategori #{@kategori.nama} berhasil di perbarui." } }
         format.json { render :show, status: :ok, location: @kategori }
       else
         format.html { render :edit }
