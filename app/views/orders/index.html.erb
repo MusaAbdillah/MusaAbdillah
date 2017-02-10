@@ -22,8 +22,8 @@
       <td><%= o.order_status.nama %></td>
       <td><%= number_with_delimiter(o.total, :delimiter => '.') %></td>
       <td><%= o.created_at %></td>
-      <td><%= link_to "detail", order_path(o)%></td>
-      <td><%= link_to "delete", delete_order_path(o), data: {title: "konfirmasi", confirm: "apakah yakin ingin menghapus transaksi?", commit: "Ya", cancel: "Tidak"} %></td>
+      <td><%= link_to "Detail", order_path(o)%></td>
+      <td><%= link_to "Hapus", delete_order_path(o), data: {title: "konfirmasi", confirm: "apakah yakin ingin menghapus transaksi?", commit: "Ya", cancel: "Tidak"} %></td>
     </tr>
   </tbody>
   <% end %>
