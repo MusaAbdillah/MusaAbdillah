@@ -1,4 +1,6 @@
 class Order < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user}
   belongs_to :order_status
   has_many :order_items, dependent: :destroy
   before_create :set_order_status

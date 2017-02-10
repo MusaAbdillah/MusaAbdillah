@@ -1,4 +1,6 @@
 class Stok < ActiveRecord::Base
+	include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user}
 	belongs_to :kategori
 	has_many :order_items, dependent: :destroy
 

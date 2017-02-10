@@ -1,4 +1,6 @@
 class Kategori < ActiveRecord::Base
+	include PublicActivity::Model
+	tracked owner: ->(controller, model) { controller && controller.current_user}
 	has_many :stoks, dependent: :destroy
 	mount_uploader :gambar, AvatarUploader
 	validates_presence_of :nama, :deskripsi, :message => "tidak boleh di kosongkan!"

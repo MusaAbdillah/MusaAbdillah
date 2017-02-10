@@ -1,0 +1,7 @@
+menambahkan kategori
+<% if activity.trackable %>
+ <%= link_to activity.trackable.nama, kategori_path(activity.trackable.id) %><br />
+ (<%= Time.now %>)
+<% else %>
+ which has since been removed
+<% end %>

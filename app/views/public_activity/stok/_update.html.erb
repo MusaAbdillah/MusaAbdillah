@@ -1,0 +1,7 @@
+memperbarui stok
+<% if activity.trackable %>
+ <%= link_to activity.trackable.nama, stok_path(activity.trackable.id) %><br />
+ (<%= Time.now %>)
+<% else %>
+ which has since been removed
+<% end %>

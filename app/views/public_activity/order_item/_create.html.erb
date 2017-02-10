@@ -1,0 +1,7 @@
+menambahkan order item
+<% if activity.trackable %>
+ <%= link_to activity.trackable.name, order_item_path(activity.trackable.id) %><br />
+ (<%= Time.now %>)
+<% else %>
+ which has since been removed
+<% end %>

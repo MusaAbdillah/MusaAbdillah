@@ -41,6 +41,7 @@
             	<a href="#" class="dropbtn"><span class="glyphicon glyphicon-user"> User</span></a>
     			     <div class="dropdown-content">
       				  <%= link_to "Pengaturan",edit_user_registration_path %>
+                <%= link_to "Aktifitas", activities_path %> 
       				  <%= link_to destroy_user_session_path, method: :delete do %>
               			<i class="glyphicon glyphicon-log-out"> Keluar</i>
               		<% end %>
