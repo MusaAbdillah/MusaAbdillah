@@ -1,5 +1,4 @@
 class OrderItemsController < ApplicationController
-  before_action :set_order_items, only: [:create, :update, :destroy]
   before_filter :authenticate_user!, only: [:create, :update, :destroy]
 
  def create
@@ -23,9 +22,6 @@ class OrderItemsController < ApplicationController
     @order_items = @order.order_items
   end
 private
-  def set_order_items
-    @order_item = OrderItems.find(params[:id])
-  end
 
   def order_item_params
     params.require(:order_item).permit(:quantity, :stok_id)
