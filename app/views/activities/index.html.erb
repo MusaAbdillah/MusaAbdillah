@@ -22,4 +22,15 @@
      </tr>
    </tfoot>
  </table>
+
+ <nav class="pagination pull-right">
+   <ul class="pagination-xs">
+     <nav aria-label="...">
+       <ul class="pager">
+         <li><%= link_to_previous_page (@activities),'Sebelumnya' %></li>
+         <li><%= link_to_next_page (@activities),'Selanjutnya' %></li>
+       </ul>
+     </nav>
+   </ul>
+ </nav>
 </div>

@@ -48,11 +48,12 @@
 
 .thumbnail-form {
   width: 80px;
-  height: 80px;
-  border: 1px dotted red;
+  height: 90px;
+  border: 1px dashed gray;
 }
 .thumbnail-form img{
-  position: auto;
+  width: 100%;
+  height: 100%;
 }
 
 #image-preview{
