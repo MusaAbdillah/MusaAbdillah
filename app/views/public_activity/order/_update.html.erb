@@ -1,7 +1,8 @@
-<p style="color: blue;">memperbarui transaksi</p>
 <% if activity.trackable %>
- <%= link_to activity.trackable.id, order_path(activity.trackable.id) %><br />
- (<%= Time.now %>)
+  <div class="activity-u">
+    memperbarui transaksi
+    <%= link_to activity.trackable.id, order_path(activity.trackable.id) %>
+  </div>
 <% else %>
  which has since been removed
 <% end %>

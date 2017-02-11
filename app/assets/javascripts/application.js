@@ -15,9 +15,10 @@
 //= require bootstrap
 //= require twitter/bootstrap
 //= require bootstrap-sprockets
+//= require data-confirm-modal
 //= require turbolinks
 //= require_tree .
-//= require data-confirm-modal
+
 
 //method untuk preview image sebelum di upload
 function previewImage() {
@@ -29,3 +30,10 @@ oFReader.onload = function(oFREvent) {
   document.getElementById("image-preview").src = oFREvent.target.result;
   };
 };
+
+//method untuk data konfirmasi
+dataConfirmModal.setDefaults({
+  title: 'Konfirmasi',
+  commit: 'Ya',
+  cancel: 'Tidak'
+});

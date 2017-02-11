@@ -1,7 +1,8 @@
-<p  style="color: green;">menambahkan kategori</p>
 <% if activity.trackable %>
- <%= link_to activity.trackable.nama, kategori_path(activity.trackable.id) %><br />
- (<%= Time.now %>)
+<div class="activity-c">
+  menambahkan kategori
+  <%= link_to activity.trackable.nama, kategori_path(activity.trackable.id) %><br />
+</div>
 <% else %>
- which has since been removed
+  kategori sudah di hapus
 <% end %>

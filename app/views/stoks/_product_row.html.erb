@@ -6,24 +6,20 @@
           <%= image_tag stok.gambar_url(:normal),class: "img img-thumbnail"%>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h4 class="text-center"><small><%= link_to ((stok.nama).truncate_words(3)), stok_path(stok) %></small></h4>
+      <div class="row text-center">
+          <p><b><%= link_to ((stok.nama).truncate_words(3)), stok_path(stok) %></b></p>
       </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
+      <div class="row text-center">
           <%= form_for order_item, remote: true do |f| %>
-            <h4 class="text-center">Harga: <span style="color: #e60000;">Rp <%= number_with_delimiter(stok.harga_jual, :delimiter => '.') %></span></h4>
+            <h4>Harga: <span style="color: #e60000;">Rp <%= number_with_delimiter(stok.harga_jual, :delimiter => '.') %></span></h4>
             <div class="input-group">
               <%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1, placeholder: "jumlah" %>
             <div class="input-group-btn">
               <%= f.hidden_field :stok_id, value: stok.id %>
-              <%= f.submit "Tambah ke Keranjang", class: "btn btn-danger btn-block purchase" %>
+              <%= f.submit "Tambah ke Keranjang", class: "btn btn-danger purchase" %>
             </div>
           </div>
           <% end %>
-        </div>
       </div>
     </div>
   </div>

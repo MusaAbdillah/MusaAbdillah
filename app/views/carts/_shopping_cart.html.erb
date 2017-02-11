@@ -16,38 +16,6 @@
       <% @order_items.each do |order_item| %>
         <%= render 'carts/cart_row', stok: order_item.stok, order_item: order_item, show_total: true %>
       <% end %>
-      <%= link_to "Check Out", check_out_route_path(:cart), class: "btn btn-danger"%>
+      <%= link_to "Check Out", check_out_route_path(:cart), class: "btn btn-default"%>
     </div>
 <% end %>
-<style>
-@media print {
-  body {
-    background-color: #FFF;
-  }
-
-  #container {
-    width: auto;
-    margin: 0;
-    padding: 0;
-    border: none;
-  }
-
-  #line_items {
-    page-break-before: always;
-  }
-
-  #pdf_link {
-    display: none;
-    }
-  }
-  #check {
-  color: #e60000;
-  background-color: #fff;
-  border-color: 1px solid #e60000;
-  }
-  #check:hover {
-  border: 1px solid #e60000;
-  background-color: #e60000;
-  color: #fff;
-  }
-</style>

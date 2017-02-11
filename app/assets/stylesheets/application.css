@@ -27,15 +27,24 @@
   url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
   url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
-
+/*button class*/
 .btn-danger {
-	background-color: #e60000;
+  background-color: #e60000;
+  color: #FFFFFF;
 }
 
 .btn-danger:hover {
 	background-color: #e60000;
+  color: #FFFFFF;
 }
 
+.purchase:hover {
+ border: 0.5px solid #e60000;
+ color: #e60000;
+ background-color: transparent;
+}
+
+/*image class*/
 .thumbnail{
 	width: 100%;
 	height: 350px;
@@ -61,15 +70,22 @@
   height : 75px;
 }
 
-.purchase:hover {
- border: 0.5px solid #e60000;
- color: #e60000;
- background-color: transparent;
-}
-
-
+/*form class*/
 textarea{
 resize: vertical;
 width: 300px;
 height: 400px;
+}
+
+/*activity class*/
+.activity-c {
+  color: green;
+}
+
+.activity-d {
+  color: red;
+}
+
+.activity-u {
+  color: blue;
 }

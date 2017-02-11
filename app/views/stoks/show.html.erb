@@ -45,15 +45,10 @@
             <i class="glyphicon glyphicon-pencil"></i> Sunting
           <% end %>
 
-          <%= link_to @stoks,method: :delete, data: {title: "confirmation?", confirm: "Apakah anda yakin akan menghapus stok #{@stok.nama} ?", commit: "Ya", cancel: "Tidak"}, class: "btn btn-default btn-block" do %>
+          <%= link_to @stoks,method: :delete, data: {confirm: "Apakah anda yakin akan menghapus stok #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
             <i class="glyphicon glyphicon-trash"></i> Hapus
           <% end %>
     </div>
 
 	</div>
   </div><!-- col-md-12 -->
-
-  <!-- javascript for dropdown -->
-  <script type="text/javascript">
-  	$('.dropdown-toggle').dropdown()
-  </script>

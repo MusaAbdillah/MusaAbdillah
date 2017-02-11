@@ -8,25 +8,33 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <td><strong>Id</strong></td>
       <td><strong>Status</strong></td>
       <td><strong>Total Transaksi</strong></td>
       <td><strong>Tanggal</strong></td>
-      <td colspan="2"><strong>Link</strong></td>
+      <td colspan="2"><strong></strong></td>
     </tr>
   </thead>
   <% @orders.each do |o| %>
   <tbody>
     <tr>
-      <td><%= o.id %></td>
       <td><%= o.order_status.nama %></td>
       <td><%= number_with_delimiter(o.total, :delimiter => '.') %></td>
       <td><%= o.created_at %></td>
-      <td><%= link_to "Detail", order_path(o)%></td>
-      <td><%= link_to "Hapus", delete_order_path(o), data: {title: "konfirmasi", confirm: "apakah yakin ingin menghapus transaksi?", commit: "Ya", cancel: "Tidak"} %></td>
+      <td><%= link_to "Detail", order_path(o), class: "btn btn-default" %></td>
+      <td><%= link_to "Hapus", delete_order_path(o), data: {confirm: "apakah yakin ingin menghapus transaksi ?"}, class: "btn btn-default" %></td>
     </tr>
   </tbody>
   <% end %>
 </table>
+<nav class="pagination pull-right">
+  <ul class="pagination-xs">
+    <nav aria-label="...">
+      <ul class="pager">
+        <li><%= link_to_previous_page (@orders),'Sebelumnya' %></li>
+        <li><%= link_to_next_page (@orders),'Selanjutnya' %></li>
+      </ul>
+    </nav>
+  </ul>
+</nav>
 </div>
 <% end %>
