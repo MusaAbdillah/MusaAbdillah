@@ -27,14 +27,30 @@
   url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
   url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+/* alert class*/
+.alert-danger{
+  background-color: #e60000;
+  color: #fff;
+}
 /*header class*/
+.navbar .navbar-fixed-top{
+  background-color: #e60000;
+}
 .navbar-header .navbar-brand {
   color: white;
   font-family: arial;
   font-weight: bold;
 }
 .navbar-header .navbar-brand:hover {
+  background-color: #e60000;
   color: white;
+  opacity: 0.8;
+}
+
+.navbar-login {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 0px 0px 0px 0px;
 }
 
 #navbar ul li a {
@@ -42,8 +58,9 @@
 }
 
 #navbar ul li a:hover {
+  background-color: #fff;
   color: #e60000;
-  background: white;
+  border-radius: 2px;
 }
 
 li a, .dropbtn {
@@ -85,6 +102,10 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
  display: block;
 }
+/* flash message*/
+.flash-messages {
+  margin-top: 55px;
+}
 
 /*button class*/
 .btn-danger {
@@ -104,12 +125,14 @@ li.dropdown {
 }
 
 #btn-search {
-  background:#e60000;
-  color: white;
+  background: #e60000;
+  color: #fff;
+  border: 1px solid #e60000;
   margin-top: 5px;
   margin-bottom: 10px;
   margin-left: 0px;
   float: right;
+  font-weight: bold;
 }
 #btn-search:hover {
   opacity: 0.9;
@@ -146,9 +169,7 @@ li.dropdown {
 
 /*form class*/
 textarea{
-resize: vertical;
-width: 300px;
-height: 400px;
+  resize: vertical;
 }
 
 #form-search {
