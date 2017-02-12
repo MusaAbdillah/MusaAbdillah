@@ -44,6 +44,21 @@
  background-color: transparent;
 }
 
+#btn-search {
+  background:#e60000;
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  float: right;
+}
+#btn-search:hover {
+  opacity: 0.9;
+  background-color: transparent;
+  color: #e60000;
+  border: 1px solid #e60000;
+}
+
 /*image class*/
 .thumbnail{
 	width: 100%;
@@ -75,6 +90,10 @@ textarea{
 resize: vertical;
 width: 300px;
 height: 400px;
+}
+
+#form-search {
+  width: 100%;
 }
 
 /*activity class*/
