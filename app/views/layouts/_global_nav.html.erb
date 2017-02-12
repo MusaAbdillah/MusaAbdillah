@@ -41,7 +41,7 @@
             	<a href="#" class="dropbtn"><span class="glyphicon glyphicon-user"> User</span></a>
     			     <div class="dropdown-content">
       				  <%= link_to "Pengaturan",edit_user_registration_path %>
-                <%= link_to "Aktifitas", activities_path %> 
+                <%= link_to "Aktifitas", activities_path %>
       				  <%= link_to destroy_user_session_path, method: :delete do %>
               			<i class="glyphicon glyphicon-log-out"> Keluar</i>
               		<% end %>
@@ -55,61 +55,3 @@
       </div>
       </div>
     </nav>
-
-    <style type="text/css">
-    .navbar-header .navbar-brand {
-      color: white;
-      font-family: arial;
-      font-weight: bold;
-    }
-    .navbar-header .navbar-brand:hover {
-      color: white;
-    }
-    #navbar ul li a {
-      color: white;
-    }
-    #navbar ul li a:hover {
-      color: #e60000;
-      background: white;
-    }
-
-   li a, .dropbtn {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 10px 5px;
-    text-decoration: none;
-	}
-
-	li a:hover, .dropdown:hover .dropbtn {
-    background-color: #e60000;
-	}
-
-	li.dropdown {
-    display: inline-block;
-	}
-
-	.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #e60000;
-    min-width: 170px;
-	}
-
-	.dropdown-content a {
-    padding-left:5px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    font-size: 12px;
-	}
-
-	.dropdown-content a:hover {
-    background-color: transparant;
-    border: 1px solid #e60000;
-  }
-
-	.dropdown:hover .dropdown-content {
-    display: block;
-	}
-    </style>

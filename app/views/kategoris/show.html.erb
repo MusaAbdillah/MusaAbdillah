@@ -32,7 +32,7 @@
 				<div class="row">
 					<% @stoks.each do |s| %>
 					<div class="col-md-3 col-sm-3 col-xs-3">
-						<div class="thumbnail">
+						<div class="thumbnail thumbnail-link">
 							<%= link_to (image_tag s.gambar_url(:normal)),stok_path(s) %>
 							<div class="caption">
 								<h3>Rp <%= number_with_delimiter(s.harga_jual, :delimiter => '.' )  %></h3>
