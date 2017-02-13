@@ -24,8 +24,8 @@
                                 <td><%= image_tag oi.stok.gambar_url(:thumb) %></td>
                                 <td><%= number_with_delimiter(oi.unit_price, :delimiter => '.') %></td>
                                 <td><%= oi.quantity %></td>
-                                <td><%= number_with_delimiter(oi.unit_price) %> x <%= oi.quantity %></td>
-                                <td class="text-right"><%= number_with_delimiter(oi.total_price) %></td>
+                                <td><%= number_with_delimiter(oi.unit_price, :delimiter => '.') %> x <%= oi.quantity %></td>
+                                <td class="text-right"><%= number_with_delimiter(oi.total_price, :delimiter => '.') %></td>
                             </tr>
                             <% end %>
                             <tr class="text-right">
