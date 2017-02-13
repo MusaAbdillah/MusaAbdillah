@@ -1,41 +1,43 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3><strong>Detail Transaksi #<%= @order.id %></strong></h3>
-            </div>
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <td><strong>Nama</strong></td>
-                                <td></td>
-                                <td><strong>Harga per Unit</strong</td>
-                                <td><strong>Jumlah</strong></td>
-                                <td></td>
-                                <td class="text-right"><strong>Subtotal</strong></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                          <% @order_items.each do |oi|%>
-                            <tr>
-                                <td><%= oi.stok.nama %></td>
-                                <td><%= image_tag oi.stok.gambar_url(:thumb) %></td>
-                                <td><%= number_with_delimiter(oi.unit_price, :delimiter => '.') %></td>
-                                <td><%= oi.quantity %></td>
-                                <td><%= number_with_delimiter(oi.unit_price, :delimiter => '.') %> x <%= oi.quantity %></td>
-                                <td class="text-right"><%= number_with_delimiter(oi.total_price, :delimiter => '.') %></td>
-                            </tr>
-                            <% end %>
-                            <tr class="text-right">
-                              <td colspan="5"><strong>TOTAL</strong></td>
-                              <td><strong><%= number_with_delimiter(@order.total, :delimiter => '.') %></strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <h3><strong>Detail Transaksi #<%= @order.id %></strong></h3>
+         <div class="table-responsive">
+            <table class="table table-striped">
+               <thead>
+                  <tr>
+                     <td><strong>Nama</strong></td>
+                     <td></td>
+                     <td><strong>Harga per Unit</strong</td>
+                     <td><strong>Jumlah</strong></td>
+                     <td></td>
+                     <td class="text-right"><strong>Subtotal</strong></td>
+                  </tr>
+               </thead>
+               <tbody>
+               <% @order_items.each do |oi|%>
+                  <tr>
+                     <td><%= oi.stok.nama %></td>
+                     <td><%= image_tag oi.stok.gambar_url(:thumb) %></td>
+                     <td><%= number_with_delimiter(oi.unit_price, :delimiter => '.') %></td>
+                     <td><%= oi.quantity %></td>
+                     <td><%= number_with_delimiter(oi.unit_price, :delimiter => '.') %> x <%= oi.quantity %></td>
+                     <td class="text-right"><%= number_with_delimiter(oi.total_price, :delimiter => '.') %></td>
+                  </tr>
+               <% end %>
+                  <tr class="text-right">
+                     <td colspan="5"><h3><strong>TOTAL</strong></h3></td>
+                     <td>
+                        <h3>
+                           <strong>
+                              <%= number_with_delimiter(@order.total, :delimiter => '.') %>
+                           </strong>
+                        </h3>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
 </div>
