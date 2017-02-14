@@ -1,8 +1,8 @@
 <% if activity.trackable %>
-  <div class="activity-u">
-    memperbarui order item
-    <%= link_to activity.trackable.nama, order_item_path(activity.trackable.id) %>
+   <div class="activity-u">
+      memperbarui order item
+      <%= link_to activity.trackable.nama, order_item_path(activity.trackable.id) %>
   </div>
 <% else %>
-  order item telah di hapus 
+   order item telah di hapus 
 <% end %>

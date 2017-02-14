@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :role
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
-  validate :password_complexity
+  #validate :password_complexity
   before_create :set_default_role
 
     def password_complexity

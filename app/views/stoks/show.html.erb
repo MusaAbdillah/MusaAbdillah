@@ -1,54 +1,54 @@
 <%= render 'layouts/global_nav' %>
 
 <div class="col-md-12">
-    <div class="col-md-10">
-    <h3><strong><%= @stok.nama %></strong></h3>
-  </div>
-    <div class="row">
+   <div class="col-md-10">
+      <h3><strong><%= @stok.nama %></strong></h3>
+   </div>
+   <div class="row">
 		<div class="col-sm-4 col-md-4">
 			<div class="thumbnail">
 				<%= image_tag @stok.gambar_url(:normal) %>
-			<div class="caption">
-				<h2 style=" text-align:center; "> <strong> Rp <%= number_with_delimiter(@stok.harga_jual, :delimiter => '.') %> </strong></h2>
-			</div>
+			   <div class="caption">
+				   <h2 style=" text-align:center; "> <strong> Rp <%= number_with_delimiter(@stok.harga_jual, :delimiter => '.') %> </strong></h2>
+			   </div>
 			</div>
 		</div>
 
 		<div class="col-sm-6 col-md-6">
-			<!-- table-->
-  		<table class="table table-default">
-		<tbody>
-			<tr>
-				<td> <strong> Harga Beli </strong> </td>
-				<td> Rp <%= number_with_delimiter(@stok.harga_beli, :delimiter => '.') %> </td>
-			</tr>
-			<tr>
-				<!-- number_with_delimiter used for sparate integer to currency format-->
-				<td> <strong> Jumlah </strong> </td>
-				<td> <%= @stok.sum_of_jumlah %> </td>
-			</tr>
-			<tr>
-				<td> <strong> Keuntungan </strong></td>
-				<td> Rp <%= number_with_delimiter(@stok.profit, :delimiter => '.')%></td>
-			</tr>
-			<tr>
-			<tr>
-				<td> <strong> Kategori </strong></td>
-				<td> <%= @stok.kategori.nama %> </td>
-			</tr>
-		</tbody>
-	</table>
+		   <!-- table-->
+  		   <table class="table table-default">
+		      <tbody>
+			      <tr>
+				      <td> <strong> Harga Beli </strong> </td>
+				      <td> Rp <%= number_with_delimiter(@stok.harga_beli, :delimiter => '.') %> </td>
+			      </tr>
+			      <tr>
+				   <!-- number_with_delimiter used for sparate integer to currency format-->
+				      <td> <strong> Jumlah </strong> </td>
+				      <td> <%= @stok.sum_of_jumlah %> </td>
+			      </tr>
+			      <tr>
+				      <td> <strong> Keuntungan </strong></td>
+				      <td> Rp <%= number_with_delimiter(@stok.profit, :delimiter => '.')%></td>
+			      </tr>
+			      <tr>
+				      <td> <strong> Kategori </strong></td>
+				      <td> <%= @stok.kategori.nama %> </td>
+			      </tr>
+		      </tbody>
+         </table>
+      </div>
 
-		</div>
-    <div class="col-md-2 col-sm-2">
-          <%= link_to edit_stok_path(@stok),:method => "get", class: "btn btn-default btn-block" do %>
+      <div class="col-md-2 col-sm-2">
+         <%= link_to edit_stok_path(@stok),:method => "get", class: "btn btn-default btn-block" do %>
             <i class="glyphicon glyphicon-pencil"></i> Sunting
-          <% end %>
+            <% end %>
 
-          <%= link_to @stoks,method: :delete, data: {confirm: "Apakah anda yakin akan menghapus stok #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
-            <i class="glyphicon glyphicon-trash"></i> Hapus
-          <% end %>
-    </div>
-
+            <% if can? :destroy, Stok %>
+               <%= link_to @stoks,method: :delete, data: {confirm: "Apakah anda yakin akan menghapus stok #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
+                  <i class="glyphicon glyphicon-trash"></i> Hapus
+                  <% end %>
+            <% end %>
+      </div>
 	</div>
-  </div><!-- col-md-12 -->
+</div><!-- col-md-12 -->

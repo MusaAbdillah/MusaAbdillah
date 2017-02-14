@@ -1,27 +1,27 @@
 <div class="container">
    <h3>Daftar Barang Terjual</h3>
-   <table class="table table-striped">
-      <thead>
-         <tr>
-            <td>Id</td>
-            <td>Stok Id</td>
-            <td>Harga Unit</td>
-            <td>Jumlah</td>
-            <td>Total Harga</td>
-            <td>Tanggal</td>
-         </tr>
-      </thead>
-      <% @order_items.each do |oi| %>
-      <tbody>
-         <tr>
-            <td><%= oi.id %></td>
-            <td><%= oi.stok_id %></td>
-            <td><%= oi.unit_price %></td>
-            <td><%= oi.quantity %></td>
-            <td><%= oi.final_total %></td>
-            <td><%= oi.created_at %></td>
-         </tr>
-      </tbody>
-      <% end %>
-   </table>
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <td>Id</td>
+               <td>Stok Id</td>
+               <td>Harga Unit</td>
+               <td>Jumlah</td>
+               <td>Total Harga</td>
+               <td>Tanggal</td>
+            </tr>
+         </thead>
+         <% @order_items.each do |oi| %>
+         <tbody>
+            <tr>
+               <td><%= oi.id %></td>
+               <td><%= oi.stok_id %></td>
+               <td><%= oi.unit_price %></td>
+               <td><%= oi.quantity %></td>
+               <td><%= oi.final_total %></td>
+               <td><%= oi.created_at %></td>
+            </tr>
+         </tbody>
+         <% end %>
+      </table>
 </div>

@@ -3,35 +3,32 @@
 
 <!-- panel stok -->
 <% if @stoks.size == 0 %>
-  <p class="text-center"> Tidak ada produk yang siap di jual untuk saat ini </p>
+   <p class="text-center"> Tidak ada produk yang siap di jual untuk saat ini </p>
 <% else %>
-<div class="col-md-12">
-  <div class="container-fluid">
-      <div class="col-md-12">
-        <div class="input-group" id="form-search">
-          <%= search_form_for @search do |f| %>
-          <%= f.text_field :nama_cont, placeholder: "Cari Produk", class: "form-control" %>
-          <%= f.submit "Cari" , class: "btn btn-danger col-md-3", id: "btn-search" %>
-        <% end %>
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
+   <div class="col-md-12">
+      <div class="container-fluid">
+         <div class="col-md-12">
+            <div class="input-group" id="form-search">
+               <%= search_form_for @search do |f| %>
+                  <%= f.text_field :nama_cont, placeholder: "Cari Produk", class: "form-control" %>
+                  <%= f.submit "Cari" , class: "btn btn-danger col-md-3", id: "btn-search" %>
+               <% end %>
+            </div><!-- /input-group -->
+         </div><!-- /.col-lg-6 -->
 
-    <% @stoks.each do |stok| %>
-      <%= render "product_row", stok: stok, order_item: @order_item %>
-      <% end %>
-
-<% end %>
-</div>
-
-  <nav class="pagination pull-right">
-    <ul class="pagination-xs">
-      <nav aria-label="...">
-        <ul class="pager">
-          <li><%= link_to_previous_page (@stoks),'Sebelumnya' %></li>
-          <li><%= link_to_next_page (@stoks),'Selanjutnya' %></li>
-        </ul>
+         <% @stoks.each do |stok| %>
+            <%= render "product_row", stok: stok, order_item: @order_item %>
+         <% end %>
+      </div>
+      <nav class="pagination pull-right">
+         <ul class="pagination-xs">
+            <nav aria-label="...">
+               <ul class="pager">
+                  <li><%= link_to_previous_page (@stoks),'Sebelumnya' %></li>
+                  <li><%= link_to_next_page (@stoks),'Selanjutnya' %></li>
+               </ul>
+            </nav>
+         </ul>
       </nav>
-    </ul>
-  </nav>
-
-</div>
+   </div>
+<% end %>

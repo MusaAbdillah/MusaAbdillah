@@ -1,20 +1,20 @@
-    <div class="col-md-3" id="stok">
-      <div class="thumbnail text-center">
-        <div class="row">
-          <%= image_tag stok.gambar_url(:normal)%>
-        </div>
+<div class="col-md-3" id="stok">
+   <div class="thumbnail text-center">
       <div class="row">
-          <p><b><%= link_to ((stok.nama).truncate_words(3)), stok_path(stok) %></b></p>
+         <%= image_tag stok.gambar_url(:normal)%>
       </div>
       <div class="row">
-        <div class="col-md-12">
-        <%= form_for order_item, remote: true do |f| %>
-            <h4>Harga: <span style="color: #e60000;">Rp <%= number_with_delimiter(stok.harga_jual, :delimiter => '.') %></span></h4>
-              <%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1, placeholder: "jumlah" %>
-              <%= f.hidden_field :stok_id, value: stok.id %>
-              <%= f.submit "Tambah ke Keranjang", class: "btn btn-danger btn-block purchase" %>
-        <% end %>
+         <p><b><%= link_to ((stok.nama).truncate_words(3)), stok_path(stok) %></b></p>
       </div>
+      <div class="row">
+         <div class="col-md-12">
+            <%= form_for order_item, remote: true do |f| %>
+               <h4>Harga: <span style="color: #e60000;">Rp <%= number_with_delimiter(stok.harga_jual, :delimiter => '.') %></span></h4>
+               <%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1, placeholder: "jumlah" %>
+               <%= f.hidden_field :stok_id, value: stok.id %>
+               <%= f.submit "Tambah ke Keranjang", class: "btn btn-danger btn-block purchase" %>
+            <% end %>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
+</div>

@@ -1,8 +1,8 @@
 <% if activity.trackable %>
-<div class="activity-u">
-  memperbarui kategori
-  <%= link_to activity.trackable.nama, kategori_path(activity.trackable.id) %>
-</div>
+   <div class="activity-u">
+      memperbarui kategori
+      <%= link_to activity.trackable.nama, kategori_path(activity.trackable.id) %>
+   </div>
 <% else %>
- kategori telah di hapus
+   kategori telah di hapus
 <% end %>

@@ -1,8 +1,8 @@
 <% if activity.trackable %>
-  <div class="activity-c">
-    menambahkan trasaksi
-    <%= link_to activity.trackable.id, order_path(activity.trackable.id) %>
-  </div>
+   <div class="activity-c">
+      menambahkan trasaksi
+      <%= link_to activity.trackable.id, order_path(activity.trackable.id) %>
+   </div>
 <% else %>
-  transaksi telah di hapus
+   transaksi telah di hapus
 <% end %>
