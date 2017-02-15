@@ -1,8 +1,7 @@
 class StoksController < ApplicationController
-   load_and_authorize_resource
   before_action :set_stok, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /stoks
   # GET /stoks.json
   def index

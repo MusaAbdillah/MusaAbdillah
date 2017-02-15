@@ -15,12 +15,23 @@ class Stok < ActiveRecord::Base
 
 	#method untuk menghitung profit/keuntungan
 
+	#def initialize(order_item)
+	#	if order_item.present?
+	#		@jml_order = order_items.quantity
+	#	end
+	#end
+
+
 	def profit
 		harga_jual-harga_beli
 	end
 
 	def sum_of_jumlah
 			self.jumlah
+	end
+
+	def no_stok
+		return self.active = false
 	end
 
 end

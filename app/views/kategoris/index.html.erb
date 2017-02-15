@@ -5,23 +5,30 @@
       <strong><%= link_to "Tambah Kategori", new_kategori_path(@kategori)%></strong>
   </p>
 <% else %>
-   <div class="col-md-12 col-sm-12">
-      <div class="row">
+   <div class="row">
+      <div class="col-md-12 col-sm-12">
          <div class="panel panel-default">
             <div class="panel-body">
                <% @kategoris.each do |k| %>
-               <div class="row">
-                  <div class="col-md-3 col-sm-3 text-center">
-                     <div class="panel panel-default panel-link">
-                        <div class="panel-body" id="pbody">
-                           <%= link_to (image_tag k.gambar_url(:thumb)), kategori_path(k)%>
-                        </div>
-                        <div class="panel-footer"><%= k.nama %></div>
-                    </div>
-                  </div>
-               <% end %>
+               <div class="col-md-3 text-center">
+                  <table class="table table-bordered">
+                     <thead>
+                     </thead>
+                     <tbody>
+                        <tr style="height:75px;">
+                           <td>
+                              <%= image_tag k.gambar_url(:thumb)%>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <%= link_to (k.nama), kategori_path(k) %>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
                </div>
-            </div>
+               <% end %>
          </div>
       </div>
    </div>
