@@ -12,7 +12,6 @@ class Stok < ActiveRecord::Base
 	validates :harga_beli, :harga_jual, :numericality => { :greater_than_or_equal_to => 0, :message => "harga harus lebih dari atau sama dengan nol" }
 
 
-
 	#method untuk menghitung profit/keuntungan
 
 	#def initialize(order_item)
@@ -23,15 +22,11 @@ class Stok < ActiveRecord::Base
 
 
 	def profit
-		harga_jual-harga_beli
+		harga_jual - harga_beli
 	end
 
 	def sum_of_jumlah
-			self.jumlah
-	end
-
-	def no_stok
-		return self.active = false
+		self.jumlah
 	end
 
 end

@@ -3,9 +3,9 @@ class OrderItem < ActiveRecord::Base
   belongs_to :order
   #validates_uniqueness_of :stok_id, :message => 'item ini sudah di masukkan ke keranjang'
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validate :product_present
+  validate :stok_present
   validate :order_present
-  validates :order_id, :uniqueness => { :scope => :stok_id, :message => "Stok already added." }
+  validates :order_id, :uniqueness => { :scope => :stok_id, :message => "Stok sudah di tambahkan" }
 
   before_save :finalize
 
@@ -26,7 +26,7 @@ class OrderItem < ActiveRecord::Base
 
 
 private
-  def product_present
+  def stok_present
     if stok.nil?
       errors.add(:stok, "stok tidak valid")
     end
@@ -37,6 +37,7 @@ private
       errors.add(:order, "stok tidak valid atau sudah di tambahkan")
     end
   end
+
 
   def finalize
     self[:unit_price] = unit_price

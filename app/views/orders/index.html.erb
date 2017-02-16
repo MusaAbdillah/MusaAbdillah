@@ -18,7 +18,7 @@
             <% @orders.each do |o| %>
             <tr>
                <td><%= o.order_status.nama %></td>
-               <td><%= number_with_delimiter(o.total, :delimiter => '.') %></td>
+               <td>Rp <%= number_with_delimiter(o.total, :delimiter => '.') %></td>
                <td><%= o.created_at %></td>
                <td><%= link_to "Detail", order_path(o), class: "btn btn-default" %></td>
                <% if can? :destroy, Order %>

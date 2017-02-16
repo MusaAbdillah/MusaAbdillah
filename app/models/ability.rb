@@ -30,8 +30,7 @@ class Ability
          if user.role_id == 2
            can :manage, :all
          else
-           can :create , Stok
-           can :create , Kategori
+           can :create, [Stok, Kategori, Order, OrderItem]
            can :read, [Stok, Kategori, Order, OrderItem, OrderStatus, Role]
          end
       else
