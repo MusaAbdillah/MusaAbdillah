@@ -19,20 +19,20 @@
                   <tr>
                      <td><%= oi.stok.nama %></td>
                      <td><%= image_tag oi.stok.gambar_url(:thumb) %></td>
-                     <td><%= number_with_delimiter(oi.unit_price, :delimiter => '.') %></td>
+                     <td>Rp <%= number_with_delimiter(oi.unit_price, :delimiter => '.') %></td>
                      <td><%= oi.quantity %></td>
-                     <td><%= number_with_delimiter(oi.unit_price, :delimiter => '.') %> x <%= oi.quantity %></td>
-                     <td class="text-right"><%= number_with_delimiter(oi.total_price, :delimiter => '.') %></td>
+                     <td>Rp <%= number_with_delimiter(oi.unit_price, :delimiter => '.') %> x <%= oi.quantity %></td>
+                     <td class="text-right">Rp <%= number_with_delimiter(oi.total_price, :delimiter => '.') %></td>
                   </tr>
                <% end %>
                   <tr class="text-right">
-                     <td colspan="5"><h3><strong>TOTAL</strong></h3></td>
+                     <td colspan="5"><h4><strong>TOTAL</strong></h4></td>
                      <td>
-                        <h3>
+                        <h4>
                            <strong>
-                              <%= number_with_delimiter(@order.total, :delimiter => '.') %>
+                              Rp <%= number_with_delimiter(@order.total, :delimiter => '.') %>
                            </strong>
-                        </h3>
+                        </h4>
                      </td>
                   </tr>
                </tbody>

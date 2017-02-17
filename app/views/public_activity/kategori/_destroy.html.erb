@@ -1,3 +1,25 @@
-<div class="activity-d">
-  menghapus kategori
-</div>
+<% if activity.trackable %>
+   <div class="activity-d">
+        <table>
+          <tr>
+             <td>
+                <h5><b>Aktifitas</b></h5>
+             </td>
+             <td>
+                <h5>
+                   : menghapus kategori
+                   <%= link_to activity.trackable.nama, kategori_path(activity.trackable.id) %>
+                </h5>
+             </td>
+          </tr>
+          <tr>
+             <td>
+                <h5><b>Waktu</b></h5>
+             </td>
+             <td>
+                <h5>: <%= activity.trackable.updated_at.strftime("%d %b %Y %I:%M%p") %> </h5>
+             </td>
+          </tr>
+       </table>
+   </div>
+<% end %>

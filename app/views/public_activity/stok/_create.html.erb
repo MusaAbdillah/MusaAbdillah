@@ -1,8 +1,25 @@
 <% if activity.trackable %>
    <div class="activity-c">
-      menambahkan stok
-      <%= link_to activity.trackable.nama, stok_path(activity.trackable.id) %>
+      <table>
+         <tr>
+            <td>
+               <h5><b>Aktifitas</b></h5>
+            </td>
+            <td>
+               <h5>
+                  : menambahkan stok
+                  <%= link_to activity.trackable.nama, stok_path(activity.trackable.id) %>
+               </h5>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <h5><b>Waktu</b></h5>
+            </td>
+            <td>
+               <h5>: <%= activity.trackable.updated_at.strftime("%d %b %Y %I:%M%p") %> </h5>
+            </td>
+         </tr>
+      </table>
   </div>
-<% else %>
-  stok telah di hapus
 <% end %>

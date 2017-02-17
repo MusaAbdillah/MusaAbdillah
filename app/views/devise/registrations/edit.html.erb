@@ -23,10 +23,9 @@
 
   <div class="form-group">
   <div class="field">
-    <%= f.label :kata_sandi %> <i>(kosongkan jika anda tidak ingin mengubah kata sandi)</i><br />
+    <%= f.label :kata_sandi_baru %>
     <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
     <% if @minimum_password_length %>
-      <br />
       <em>minimal <%= @minimum_password_length %> karakter </em>
     <% end %>
   </div>
@@ -51,8 +50,7 @@
   </div>
 <% end %>
 </div>
-<p>Kurang Puas? <%= button_to "Hapus Akun", registration_path(resource_name), data: { confirm: "Apakah anda yakin?" }, method: :delete, class: "btn btn-default btn-xs" %></p>
-<%= link_to "Kembali", :back, class: "btn btn-default btn-xs" %>
+<p><%= button_to "Hapus Akun", registration_path(resource_name), data: { confirm: "Apakah anda yakin?" }, method: :delete, class: "btn btn-danger btn-xs pull-right" %></p>
 </div>
 </div>
 </div>

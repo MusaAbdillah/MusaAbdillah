@@ -17,6 +17,6 @@
       <% @order_items.each do |order_item| %>
          <%= render 'carts/cart_row', stok: order_item.stok, order_item: order_item, show_total: true %>
       <% end %>
-      <%= link_to "Check Out", check_out_route_path(:cart), class: "btn btn-default"%>
+      <%= link_to "Selesaikan Transaksi", check_out_route_path(:cart), class: "btn btn-default"%>
    </div>
 <% end %>

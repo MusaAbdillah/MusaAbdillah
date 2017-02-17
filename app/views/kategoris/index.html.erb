@@ -15,7 +15,7 @@
                      <tbody>
                         <tr style="height:75px;">
                            <td>
-                              <%= image_tag k.gambar_url(:thumb)%>
+                              <%= link_to (image_tag k.gambar_url(:thumb)), kategori_path(k) %>
                            </td>
                         </tr>
                         <tr>

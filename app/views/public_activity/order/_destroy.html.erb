@@ -1,3 +1,25 @@
-<div class="activity-d">
-  menghapus trasaksi
-</div>
+<% if activity.trackable %>
+   <div class="activity-d">
+      <table>
+         <tr>
+            <td>
+               <h5><b>Aktifitas</b></h5>
+            </td>
+            <td>
+               <h5>
+                  : menghapus trasaksi
+                  <%= link_to activity.trackable.id, order_path(activity.trackable.id) %><br/>
+               </h5>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <h5><b>Waktu</b></h5>
+            </td>
+            <td>
+               <h5>: <%= activity.trackable.updated_at.strftime("%d %b %Y %I:%M%p") %> </h5>
+            </td>
+         </tr>
+      </table>
+   </div>
+<% end %>

@@ -27,14 +27,13 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
    def initialize(user)
       if user.present?
-         if user.role_id == 2
+         if user.role.nama == 'owner'
            can :manage, :all
          else
-           can :create, [Stok, Kategori, Order, OrderItem]
-           can :read, [Stok, Kategori, Order, OrderItem, OrderStatus, Role]
+            can :manage, [Stok, Kategori, OrderItem, Order]
          end
       else
-         can :read, [Stok, Kategori, Order, OrderItem, OrderStatus, Role]
+         can :read, [Stok, Kategori]
       end
    end
 end
