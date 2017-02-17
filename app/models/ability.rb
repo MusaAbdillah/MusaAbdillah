@@ -28,12 +28,12 @@ class Ability
    def initialize(user)
       if user.present?
          if user.role.nama == 'owner'
-           can :manage, :all
+            can :manage, :all
          else
-            can :manage, [Stok, Kategori, OrderItem, Order]
+            can :manage, :all
          end
       else
-         can :read, [Stok, Kategori]
+         can :read, :all
       end
    end
 end
