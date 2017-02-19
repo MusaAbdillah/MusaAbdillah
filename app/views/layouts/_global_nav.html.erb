@@ -36,7 +36,7 @@
             	   <a href="#" class="dropbtn"><span class="glyphicon glyphicon-user"> Akun</span></a>
     			      <div class="dropdown-content">
       				   <%= link_to "Pengaturan",edit_user_registration_path %>
-                     <% if can? :read, @activities %>
+                     <% if can? :manage, @activities %>
                      <%= link_to "Angkat Admin", new_user_registration_path %>
                      <%= link_to "Aktifitas", activities_path %>
                      <%= link_to "Hak Akses", roles_path %>
