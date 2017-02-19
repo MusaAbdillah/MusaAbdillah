@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   before_create :set_default_role
 
       def set_default_role
-         self.role ||= Role.find_by_nama('owner')
+         self.role ||= Role.find_by_id(1)
       end
 end
