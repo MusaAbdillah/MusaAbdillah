@@ -1,20 +1,17 @@
-
- <!-- searching & Sorting navigation  -->
-
 <!-- panel stok -->
 <% if @stoks.size == 0 %>
    <p class="text-center"> Tidak ada produk yang siap di jual untuk saat ini </p>
 <% else %>
    <div class="col-md-12">
-      <div class="container-fluid">
-         <div class="col-md-12">
-            <div class="input-group" id="form-search">
-               <%= search_form_for @search do |f| %>
-                  <%= f.text_field :nama_cont, placeholder: "Cari Produk", class: "form-control" %>
-                  <%= f.submit "Cari" , class: "btn btn-danger col-md-3", id: "btn-search" %>
-               <% end %>
-            </div><!-- /input-group -->
-         </div><!-- /.col-lg-6 -->
+      <div class="container">
+         <%= search_form_for @search do |f| %>
+            <div class="input-group">
+               <%= f.text_field :nama_cont, placeholder: "Cari Produk", class: "form-control",id:"form-search" %>
+               <div class="input-group-btn">
+                  <%= f.submit "Cari", class: "btn btn-danger", id: "btn-search" %>
+               </div>
+            </div>
+         <% end %>
 
          <% @stoks.each do |stok| %>
             <%= render "product_row", stok: stok, order_item: @order_item %>

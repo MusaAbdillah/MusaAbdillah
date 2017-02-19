@@ -46,8 +46,6 @@
   border: 1px solid #fff;
   border-radius: 5px;
   font-weight: bold;
-  padding: 0px 0px 0px 0px;
-  margin: 2px 0px 2px 0px;
 }
 
 #navbar ul li a {
@@ -125,7 +123,6 @@ li.dropdown {
   background: #e60000;
   color: #fff;
   border: 1px solid #e60000;
-  margin-top: 5px;
   margin-bottom: 10px;
   margin-left: 0px;
   float: right;
