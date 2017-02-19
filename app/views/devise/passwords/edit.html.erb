@@ -1,33 +1,33 @@
 <div class="col-md-12 col-sm-12">
-<div class="container">
-<h2>Ganti kata sandi</h2>
+   <div class="container">
+      <h2>Ganti kata sandi</h2>
 
-<div class="form">
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-  <div class="form-group">
-  <div class="field">
-    <%= f.label :kata_sandi, "Kata sandi baru" %><br />
-    <% if @minimum_password_length %>
-      <em>(minimal <%= @minimum_password_length %> karakter)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
-  </div>
-  </div>
+      <div class="form">
+         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+         <%= devise_error_messages! %>
+            <%= f.hidden_field :reset_password_token %>
+            <div class="form-group">
+               <div class="field">
+                  <%= f.label :kata_sandi, "Kata sandi baru" %><br />
+                  <% if @minimum_password_length %>
+                  <em>(minimal <%= @minimum_password_length %> karakter)</em><br />
+                  <% end %>
+                  <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
+               </div>
+            </div>
 
-  <div class="form-group">
-  <div class="field">
-    <%= f.label :konfirmasi_kata_sandi, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-  </div>
-  </div>
+            <div class="form-group">
+               <div class="field">
+                  <%= f.label :konfirmasi_kata_sandi, "Confirm new password" %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+               </div>
+            </div>
 
-  <div class="actions">
-    <%= f.submit "Ganti kata sandi", class: "btn btn-default btn-lg" %>
-  </div>
-<% end %>
-</div>
-<%= render "devise/shared/links" %>
-</div>
+            <div class="actions">
+               <%= f.submit "Ganti kata sandi", class: "btn btn-default btn-lg" %>
+            </div>
+         <% end %>
+      </div>
+      <%= render "devise/shared/links" %>
+   </div>
 </div>

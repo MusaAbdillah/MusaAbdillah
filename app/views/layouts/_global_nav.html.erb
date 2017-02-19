@@ -39,6 +39,7 @@
                      <% if can? :read, @activities %>
                      <%= link_to "Angkat Admin", new_user_registration_path %>
                      <%= link_to "Aktifitas", activities_path %>
+                     <%= link_to "Hak Akses", roles_path %>
                      <% end %>
       				   <%= link_to destroy_user_session_path, method: :delete do %>
               	         <i class="glyphicon glyphicon-log-out"> Keluar</i>

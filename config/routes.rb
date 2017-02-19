@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'stoks#index'
   get 'order_items/create'
   get 'order_items/update'
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   get 'check_outs' => 'carts#check_out', as: :check_out_route
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
+  resources :roles
   resources :activities
   resources :stoks
   resources :kategoris

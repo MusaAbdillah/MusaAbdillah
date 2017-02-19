@@ -1,0 +1,35 @@
+<div class="container">
+   <div class="row">
+      <h3>Daftar Akun dan Hak Akses</h3>
+      <table class="table table-bordered">
+         <thead>
+            <tr>
+               <th>
+                  Id
+               </th>
+               <th>
+                  Email
+               </th>
+               <th>
+                  Hak Akses
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <% @users.each do |r| %>
+            <tr>
+               <td>
+                  <%= r.id %>
+               </td>
+               <td>
+                  <%= r.email %>
+               </td>
+               <td>
+                  <%= r.role.nama %>
+               </td>
+            </tr>
+            <% end %>
+         </tbody>
+      </table>
+   </div>
+</div>

@@ -1,33 +1,27 @@
 <div class="link">
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Masuk", new_session_path(resource_name), class: "btn btn-default btn-xs" %><br />
-<% end -%>
+   <%- if controller_name != 'sessions' %>
+      <%= link_to "Masuk", new_session_path(resource_name), class: "btn btn-default btn-xs" %><br />
+   <% end -%>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Daftar", new_registration_path(resource_name), class: "btn btn-default btn-xs" %><br />
-<% end -%>
+   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "Daftar", new_registration_path(resource_name), class: "btn btn-default btn-xs" %><br />
+   <% end -%>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Lupa kata sandi?", new_password_path(resource_name), class: "btn btn-default btn-xs" %><br />
-<% end -%>
+   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Lupa kata sandi?", new_password_path(resource_name), class: "btn btn-default btn-xs" %><br />
+   <% end -%>
 
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Belum menerima pemberitahuan?", new_confirmation_path(resource_name), class: "btn btn-default btn-xs" %><br />
-<% end -%>
+   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <%= link_to "Belum menerima pemberitahuan?", new_confirmation_path(resource_name), class: "btn btn-default btn-xs" %><br />
+   <% end -%>
 
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Belum menerima pemberitahuan untuk membuka ulang?", new_unlock_path(resource_name), class: "btn btn-default btn-xs" %><br />
-<% end -%>
+   <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+      <%= link_to "Belum menerima pemberitahuan untuk membuka ulang?", new_unlock_path(resource_name), class: "btn btn-default btn-xs" %><br />
+   <% end -%>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Masuk dengan #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-default" %><br />
-  <% end -%>
-<% end -%>
+   <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+         <%= link_to "Masuk dengan #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-default" %><br />
+         <% end -%>
+   <% end -%>
 </div>
-<style type="text/css">
-	.link a {		
-		margin-bottom: 5px;
-
-	}
-</style>

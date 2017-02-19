@@ -1,47 +1,36 @@
 <div class="col-md-12 col-sm-12" id="form">
-<div class="container">
-<div class="col-md-6 col-sm-6 col-md-offset-3" id="grid-right">
-<h2>Masuk</h2>
+   <div class="container">
+      <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3" id="grid-right">
+         <h2>Masuk</h2>
 
-<div class="form">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div class="form-group">
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control" %>
-  </div>
-  </div>
+         <div class="form">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-group">
+               <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, class: "form-control" %>
+               </div>
+            </div>
 
-  <div class="form-group">
-  <div class="field">
-    <%= f.label :kata_sandi %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-  </div>
-  </div>
+            <div class="form-group">
+               <div class="field">
+                  <%= f.label :kata_sandi %><br />
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+               </div>
+            </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :biarkan_saya_tetap_masuk %>
-    </div>
-  <% end -%>
+            <% if devise_mapping.rememberable? -%>
+               <div class="field">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :biarkan_saya_tetap_masuk %>
+               </div>
+            <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Masuk", class: "btn btn-default btn-lg btn-block" %>
-  </div>
-<% end %>
-</div><!-- col-md-6 col-sm-6 -->
+            <div class="actions">
+               <%= f.submit "Masuk", class: "btn btn-default btn-lg btn-block" %>
+            </div>
+            <% end %>
+         </div><!-- col-md-6 col-sm-6 -->
+      </div>
+   </div>
 </div>
-<div class="col-md-6 col-sm-6">
-
-</div>
-
-</div>
-</div>
-<style type="text/css">
-
-
-
-
-
-</style>
