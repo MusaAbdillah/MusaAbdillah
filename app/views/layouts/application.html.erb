@@ -27,6 +27,7 @@
       <!-- body-->
       <div class="row">
          <div class="col-md-12 col-sm-12">
+            <div class="container">
             <nav class="navbar navbar-fixed-top">
                <% if user_signed_in? %>
                   <%= render 'layouts/global_nav' %>
@@ -34,6 +35,7 @@
             	  <%= render 'layouts/header_login' %>
                <% end %>
             </nav>
+         </div>
          </div>
       </div>
 

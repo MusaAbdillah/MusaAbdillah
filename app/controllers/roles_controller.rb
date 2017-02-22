@@ -10,11 +10,24 @@ class RolesController < ApplicationController
       @users = @role.users
    end
 
+   def new
+      @role = Role.new
+   end
+
    def edit
    end
 
-   # PATCH/PUT /kategoris/1
-   # PATCH/PUT /kategoris/1.json
+   def create
+      @role = Role.new(role_params)
+      respond_to do |format|
+         if @role.save
+            format.html { redirect_to '/roles', flash: {success: "role berhasil di buat" } }
+         else
+            format.html { render :new  }
+         end
+      end
+   end
+
    def update
      respond_to do |format|
        if @role.update(role_params)
