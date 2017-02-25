@@ -19,4 +19,4 @@ Role.create! id:3, nama: "user"
 
 #seed data user
 User.delete_all
-User.create! id:2, email: "owner@abtech.com", encrypted_password: "tOOr%powerr99", role_id: 1
+User.create! email: "owner@abtech.com", encrypted_password: "tOOr%powerr99", role_id: 1

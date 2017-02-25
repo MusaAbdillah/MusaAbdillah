@@ -18,18 +18,24 @@
 		   <!-- table-->
   		   <table class="table table-default">
 		      <tbody>
+               <% if can? :manage, @activities %>
 			      <tr>
 				      <td> <strong> Harga Beli </strong> </td>
 				      <td> Rp <%= number_with_delimiter(@stok.harga_beli, :delimiter => '.') %> </td>
 			      </tr>
+               <tr>
+				      <td> <strong> Harga Jual </strong> </td>
+				      <td> Rp <%= number_with_delimiter(@stok.harga_jual, :delimiter => '.') %> </td>
+			      </tr>
 			      <tr>
+               <tr>
+   				   <td> <strong> Keuntungan </strong></td>
+   				   <td> Rp <%= number_with_delimiter(@stok.profit, :delimiter => '.')%></td>
+   			   </tr>
+               <% end %>
 				   <!-- number_with_delimiter used for sparate integer to currency format-->
 				      <td> <strong> Jumlah </strong> </td>
 				      <td> <%= @stok.sum_of_jumlah %> </td>
-			      </tr>
-			      <tr>
-				      <td> <strong> Keuntungan </strong></td>
-				      <td> Rp <%= number_with_delimiter(@stok.profit, :delimiter => '.')%></td>
 			      </tr>
 			      <tr>
 				      <td> <strong> Kategori </strong></td>
