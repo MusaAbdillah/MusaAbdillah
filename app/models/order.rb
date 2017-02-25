@@ -14,6 +14,7 @@ class Order < ActiveRecord::Base
     order_items.collect { |oi| oi.valid? ? (oi.total_price) : 0 }.sum
   end
 
+
 private
   def set_order_status
     self.order_status_id = 1
@@ -26,5 +27,7 @@ private
   def update_subtotal
     self[:total] = total
   end
+
+
 
 end
