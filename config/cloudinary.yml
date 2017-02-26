@@ -1,0 +1,18 @@
+development:
+  cloud_name: ab-technology
+  api_key: '694959295419173'
+  api_secret: OP1IMfa0f3QW2dySmjhlWzXFws4
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: ab-technology
+  api_key: '694959295419173'
+  api_secret: OP1IMfa0f3QW2dySmjhlWzXFws4
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: ab-technology
+  api_key: '694959295419173'
+  api_secret: OP1IMfa0f3QW2dySmjhlWzXFws4
+  enhance_image_tag: true
+  static_image_support: false
