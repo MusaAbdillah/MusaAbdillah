@@ -32,7 +32,7 @@ class StoksController < ApplicationController
 
     respond_to do |format|
       if @stok.save(stok_params)
-        format.html { redirect_to @stok, flash: { success: "Stok #{@stok.nama} berhasil di buat." }}
+        format.html { redirect_to @stok, flash: { success: "Produk #{@stok.nama} berhasil di buat." }}
         format.json { render :show, status: :created, location: @stok }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class StoksController < ApplicationController
   def update
     respond_to do |format|
       if @stok.update(stok_params)
-        format.html { redirect_to @stok, notice: "Stok #{@stok.nama} berhasil di perbarui." }
+        format.html { redirect_to @stok, notice: "Produk #{@stok.nama} berhasil di perbarui." }
         format.json { render :show, status: :ok, location: @stok }
       else
         format.html { render :edit }
@@ -61,10 +61,11 @@ class StoksController < ApplicationController
   def destroy
     @stok.destroy
     respond_to do |format|
-      format.html { redirect_to @stok, flash: { error: "Stok #{@stok.nama} berhasil di hapus." }}
+      format.html { redirect_to @stok, flash: { error: "Produk #{@stok.nama} berhasil di hapus." }}
       format.json { head :no_content }
     end
   end
+
 
 
   private

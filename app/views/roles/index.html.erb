@@ -5,6 +5,13 @@
             <thead>
                <tr>
                   <th colspan="2">
+                     <%= link_to new_role_path(@role), class: "btn btn-default" do %>
+                        <i class="glyphicon glyphicon-plus"> Tambah</i>
+                        <% end %>
+                  </th>
+               </tr>
+               <tr>
+                  <th colspan="2">
                      Daftar Hak Akses
                   </th>
                </tr>
@@ -34,13 +41,6 @@
          <h3>Daftar Akun dan Hak Akses</h3>
          <table class="table table-bordered">
             <thead>
-               <tr>
-                  <th colspan="2">
-                     <%= link_to new_role_path(@role), class: "btn btn-default" do %>
-                        <i class="glyphicon glyphicon-plus"> Tambah</i>
-                        <% end %>
-                  </th>
-               </tr>
                <tr>
                   <th>
                      Email

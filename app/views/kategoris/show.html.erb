@@ -1,23 +1,21 @@
 <%= render 'layouts/global_nav' %>
-<div class="jumbotron">
-	<h1>
-		<%= @kategori.nama %>
-	</h1>
-	<% if can? :update?, Kategori %>
-		<%= link_to edit_kategori_path(@kategori),class: "btn btn-default btn-sm" do %>
-  			<i class="glyphicon glyphicon-wrench"></i>
-    		<% end %>
-	<% end %>
-	<p><small><%= @kategori.deskripsi %></small> </p>
-</div>
-
-<!-- navigasi show method -->
 <% if @kategori.stoks.size == 0 %>
-	<p class="text-center">
-		<i>Stok produk untuk kategori ini tidak tersedia untuk saat ini</i>
-		<strong><%= link_to 'Tambah Stok',new_kategori_stok_path(@kategori) %></strong>
-	</p>
+		<p class="text-center">
+			<i>produk untuk kategori <%= @kategori.nama %> tidak tersedia untuk saat ini</i>
+			<strong><%= link_to 'Tambah Stok',new_kategori_stok_path(@kategori) %></strong>
+		</p>
 <% else %>
+	<div class="jumbotron">
+		<h1>
+			<%= @kategori.nama %>
+		</h1>
+		<% if can? :update?, Kategori %>
+			<%= link_to edit_kategori_path(@kategori),class: "btn btn-default btn-sm" do %>
+				<i class="glyphicon glyphicon-wrench"></i>
+				<% end %>
+		<% end %>
+		<p><small><%= @kategori.deskripsi %></small> </p>
+	</div>
 	<div class="navbar navbar-default">
 		<ul class="nav nav-tabs">
 			<li role="presentation" class="active"><a href="#">Lihat Stok <%= "#{@kategori.nama}" %></a></li>

@@ -47,13 +47,13 @@
 
       <div class="col-md-2 col-sm-2">
          <% if can? :destroy, Stok %>
-            <%= link_to  @stoks, class: "btn btn-default btn-block" do %>
+            <%= link_to  @stok, class: "btn btn-default btn-block" do %>
                <i class="glyphicon glyphicon-remove"></i> Set Kosong
                <% end %>
             <%= link_to edit_stok_path(@stok),:method => "get", class: "btn btn-default btn-block" do %>
                <i class="glyphicon glyphicon-pencil"></i> Sunting
                <% end %>
-            <%= link_to @stoks,method: :delete, data: {confirm: "Apakah anda yakin akan menghapus stok #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
+            <%= link_to @stoks,method: :delete, data: {confirm: "Apakah anda yakin akan menghapus produk #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
                <i class="glyphicon glyphicon-trash"></i> Hapus
                <% end %>
          <% end %>
