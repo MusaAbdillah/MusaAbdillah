@@ -1,7 +1,7 @@
 <%= render 'layouts/global_nav' %>
 <% if @kategoris.size == 0 %>
    <p class="text-center">
-      <i>Tidak ada kategori yang tersedia untuk saat ini</i>
+      Tidak ada kategori yang tersedia untuk saat ini
       <strong><%= link_to "Tambah Kategori", new_kategori_path(@kategori)%></strong>
   </p>
 <% else %>

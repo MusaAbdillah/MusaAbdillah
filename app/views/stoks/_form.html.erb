@@ -13,7 +13,7 @@
             <!-- error explanation-->
             <div class="form-group">
                <%= s.label :gambar, class: "control-label"%>
-               <%= s.hidden_field :gambar%>
+               <%= s.hidden_field :gambar_cache %>
                <%= s.file_field :gambar, id: "image-source", onchange: "previewImage();"%>
                <p class="form-text text-muted">
                   File gambar harus berekstensi jpg, jpeg atau png.
