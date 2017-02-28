@@ -6,10 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 OrderStatus.delete_all
-OrderStatus.create! id: 1, nama: "proses"
+o1 = OrderStatus.create(id: 1, nama: "proses")
+o2 = OrderStatus.create(id: 2, nama: "batal")
+o3 = OrderStatus.create(id: 3, nama: "berhasil")
 
 #seed data user
 
 #seed data role
 Role.delete_all
-roles = Role.create!([{id:1}, { nama: "owner"}], [{id:2}, { nama: "admin"}], [{id:3}, { nama: "user"}]) 
+r0 = Role.create(id: 1, nama: "owner")
+r1 = Role.create(id: 2, nama: "admin")
+r2 = Role.create(id: 3, nama: "user")
