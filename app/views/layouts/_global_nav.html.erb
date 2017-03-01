@@ -17,6 +17,7 @@
       <div class="col-md-9 col-sm-9">
          <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
+               <% if can? :manage, @activities %>
                <li class="dropdown">
     			      <a href="#" class="dropbtn"><span class="glyphicon glyphicon-gift"></span> Stok</a>
     			         <div class="dropdown-content">
@@ -32,11 +33,12 @@
                         <%= link_to "Transaksi",orders_path %>
                   </div>
                </li>
+               <% end %>
                <li class="dropdown">
             	   <a href="#" class="dropbtn"><span class="glyphicon glyphicon-user"> Akun</span></a>
     			      <div class="dropdown-content">
+                     <%= link_to "Pengaturan",edit_user_registration_path %>
                      <% if can? :manage, @activities %>
-      				   <%= link_to "Pengaturan",edit_user_registration_path %>
                      <%= link_to "Angkat Admin", new_user_registration_path %>
                      <%= link_to "Aktifitas", activities_path %>
                      <%= link_to "Hak Akses", roles_path %>

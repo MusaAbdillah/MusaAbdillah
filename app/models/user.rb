@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
    before_create :set_default_role
 
       def set_default_role
-         self.role ||= Role.find_by_nama('admin')
+         self.role ||= Role.find_by_nama('user')
       end
 end

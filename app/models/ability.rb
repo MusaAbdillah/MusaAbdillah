@@ -29,8 +29,10 @@ class Ability
       if user.present?
          if user.role_id == 1#(jika user == owner )
             can :manage, :all
-         else
+         elsif user.role_id == 2
             can :manage, [Stok, Kategori, OrderItem, Order, OrderStatus]
+         else
+            can :read, :all
          end
       else
          can :read, :all

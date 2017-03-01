@@ -11,8 +11,11 @@
 		</h1>
 		<% if can? :update?, Kategori %>
 			<%= link_to edit_kategori_path(@kategori),class: "btn btn-default btn-sm" do %>
-				<i class="glyphicon glyphicon-wrench"></i>
-				<% end %>
+					<i class="glyphicon glyphicon-wrench"></i>
+					<% end %>
+				<%= link_to @kategoris,method: :delete, data: {confirm: "Apakah anda yakin akan menghapus produk #{@kategori.nama} ?"}, class: "btn btn-default btn-sm" do %>
+					<i class="glyphicon glyphicon-trash"></i> Hapus
+					<% end %>
 		<% end %>
 		<p><small><%= @kategori.deskripsi %></small> </p>
 	</div>

@@ -19,7 +19,7 @@
          <tbody>
             <% @orders.each do |o| %>
             <tr>
-               <td><%= o.order_status.nama.reverse! %></td>
+               <td><%= o.order_status.nama %></td>
                <td>Rp <%= number_with_delimiter(o.total, :delimiter => '.') %></td>
                <td><%= o.created_at.strftime("%d %b %Y") %></td>
                <td> <%= o.jumlah %> </td>
