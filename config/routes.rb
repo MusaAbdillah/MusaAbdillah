@@ -1,27 +1,24 @@
 Rails.application.routes.draw do
 
   root 'stoks#index'
-  get 'order_items/create'
-  get 'order_items/update'
-  get 'order_items/destroy'
-  get 'carts/show'
-  get 'orders/:id/destroy' => 'orders#destroy', as: :delete_order
-  delete 'orders/:id' => 'orders#destroy'
-  get 'check_outs' => 'carts#check_out', as: :check_out_route
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
-  resources :roles, only: [:index, :new, :create]
+  resources :roles, only: [:index, :new, :create, :destroy]
   resources :activities
   resources :stoks
   resources :kategoris
+  resources :orders, only: [:index, :show, :destroy]
   resource :cart, only: [:show]
   resources :order_items, only: [:index, :create, :update, :destroy]
-  resources :orders, only: [:index, :show, :destroy]
-
-
   resources :kategoris do
     resources :stoks
   end
+
+  get 'carts/show'
+  get 'check_outs' => 'carts#check_out', as: :check_out_route
+
+  #router destroy untuk role
+  #delete 'roles/:id' => 'roles#destroy', as: :destroy_role
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

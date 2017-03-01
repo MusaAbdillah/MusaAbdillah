@@ -27,9 +27,9 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
    def initialize(user)
       if user.present?
-         if user.role_id == 1#(jika user == owner )
+         if user.role.nama == 'owner'#(jika user == owner )
             can :manage, :all
-         elsif user.role_id == 2
+         elsif user.role.nama == "admin"
             can :manage, [Stok, Kategori, OrderItem, Order, OrderStatus]
          else
             can :read, :all

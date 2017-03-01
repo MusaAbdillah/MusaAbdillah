@@ -1,5 +1,5 @@
 class RolesController < ApplicationController
-   before_action :set_role, only: [:show, :edit, :update]
+   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
    def index
       @roles = Role.all
@@ -42,6 +42,13 @@ class RolesController < ApplicationController
 
    # DELETE /kategoris/1
    # DELETE /kategoris/1.json
+
+   def destroy
+      @role.destroy
+      respond_to do |format|
+         format.html { redirect_to @role, flash: {error: "Role #{@role.nama} berhasil di hapus" } }
+      end
+   end
 
 
 

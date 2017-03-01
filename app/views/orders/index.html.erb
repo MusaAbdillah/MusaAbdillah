@@ -23,10 +23,16 @@
                <td>Rp <%= number_with_delimiter(o.total, :delimiter => '.') %></td>
                <td><%= o.created_at.strftime("%d %b %Y") %></td>
                <td> <%= o.jumlah %> </td>
-               <td><%= link_to "Detail", order_path(o), class: "btn btn-default" %></td>
+               <td>
+                  <%= link_to order_path(o), class: "btn btn-default" do %>
+                  <i class="glyphicon glyphicon-eye-open"> Detail</i>
+                  <% end %>
+               </td>
                <% if can? :destroy, Order %>
                   <td>
-                     <%= link_to "Hapus", delete_order_path(o), data: {confirm: "apakah yakin ingin menghapus transaksi ?"}, class: "btn btn-default" %>
+                     <%= link_to order_path(o),method: :delete, data: {confirm: "Apakah anda yakin akan menghapus transaksi ini?"}, class: "btn btn-default" do %>
+                        <i class="glyphicon glyphicon-trash"></i> Hapus
+                        <% end %>
                   </td>
                <% end %>
             </tr>

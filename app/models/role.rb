@@ -1,4 +1,8 @@
 class Role < ActiveRecord::Base
+	#record aktifitas
+   include PublicActivity::Model
+   tracked owner: ->(controller, model) { controller && controller.current_user}
+	
 	#relasi database
 	has_many :users
 	#validasi

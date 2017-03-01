@@ -53,7 +53,7 @@
             <%= link_to edit_stok_path(@stok),:method => "get", class: "btn btn-default btn-block" do %>
                <i class="glyphicon glyphicon-pencil"></i> Sunting
                <% end %>
-            <%= link_to @stoks,method: :delete, data: {confirm: "Apakah anda yakin akan menghapus produk #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
+            <%= link_to stok_path(@stok),method: :delete, data: {confirm: "Apakah anda yakin akan menghapus produk #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
                <i class="glyphicon glyphicon-trash"></i> Hapus
                <% end %>
          <% end %>
