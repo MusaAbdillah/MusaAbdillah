@@ -1,15 +1,14 @@
 class OrderItem < ActiveRecord::Base
    #relasi database
-  belongs_to :stok
-  belongs_to :order
-  #validasi
-  validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validate :stok_present
-  validate :order_present
-  validates :order_id, :uniqueness => { :scope => :stok_id, :message => "Stok sudah di tambahkan" }
-  #callback
-  before_save :finalize
-
+   belongs_to :stok
+   belongs_to :order
+   #validasi
+   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
+   validate :stok_present
+   validate :order_present
+   validates :order_id, :uniqueness => { :scope => :stok_id, :message => "Stok sudah di tambahkan" }
+   #callback
+   before_save :finalize
 
 
       def unit_price

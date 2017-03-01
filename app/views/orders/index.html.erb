@@ -12,15 +12,17 @@
                <td><strong>Status</strong></td>
                <td><strong>Total Transaksi</strong></td>
                <td><strong>Tanggal</strong></td>
-               <td colspan="2"><strong></strong></td>
+               <td><strong>Total Produk</strong></td>
+               <td colspan="2"><strong> </strong></td>
             </tr>
          </thead>
          <tbody>
             <% @orders.each do |o| %>
             <tr>
-               <td><%= o.order_status.nama %></td>
+               <td><%= o.order_status.nama.reverse! %></td>
                <td>Rp <%= number_with_delimiter(o.total, :delimiter => '.') %></td>
                <td><%= o.created_at.strftime("%d %b %Y") %></td>
+               <td> <%= o.jumlah %> </td>
                <td><%= link_to "Detail", order_path(o), class: "btn btn-default" %></td>
                <% if can? :destroy, Order %>
                   <td>

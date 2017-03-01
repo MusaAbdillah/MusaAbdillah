@@ -20,8 +20,12 @@ class Stok < ActiveRecord::Base
 		harga_jual - harga_beli
 	end
 	#method untuk jumlah stok
-	def sum_of_jumlah
-		jumlah
+	def oi_quantity
+		order_items.collect { |oi| oi.valid? ? (oi.quantity) : 0 }.sum
+	end
+
+	def update_quantity
+		self[:jumlah] -= oi_quantity
 	end
 
 end
