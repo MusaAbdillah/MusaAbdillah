@@ -2,25 +2,25 @@ Rails.application.routes.draw do
 
    root 'stoks#index'
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }
-  resources :roles, only: [:index, :new, :create, :destroy]
-  resources :activities
-  resources :stoks
-  resources :kategoris
-  resources :orders, only: [:index, :show, :destroy]
-  resource :cart, only: [:show]
-  resources :order_items, only: [:index, :create, :update, :destroy]
-  resources :clients
-  resources :troubels, except: [:show]
-  resources :services
-  resources :kategoris do
-    resources :stoks
-  end
+      devise_for :users, controllers: { sessions: 'users/sessions' }
+      resources :roles, only: [:index, :new, :create, :destroy]
+      resources :activities
+      resources :stoks
+      resources :kategoris
+      resources :orders, only: [:index, :show, :destroy]
+      resource :cart, only: [:show]
+      resources :order_items, only: [:index, :create, :update, :destroy]
+      resources :clients
+      resources :troubels, except: [:show]
+      resources :services
+      resources :kategoris do
+         resources :stoks
+      end
 
 
-  
-  get 'check_outs' => 'order_items#final_order', as: :check_out_route
-  get 'set_nil/:id' => 'stoks#set_nil', as: :set_nil
+
+      get 'check_outs' => 'order_items#final_order', as: :check_out_route
+      get 'set_nil/:id' => 'stoks#set_nil', as: :set_nil
   #router destroy untuk role
   #delete 'roles/:id' => 'roles#destroy', as: :destroy_role
 

@@ -5,7 +5,7 @@
         <tr>
            <th>
               <%= link_to new_service_path, class: "btn btn-default" do %>
-              <i class="glyphicon glyphicon-plus"></i> Tambahan Servis
+              <i class="glyphicon glyphicon-pencil"></i> Tambahan Servis
               <% end %>
            </th>
         </tr>
@@ -25,17 +25,17 @@
             <td><%= s.troubel.name %></td>
             <td>
                <%= link_to service_path(s), class: "btn btn-default" do %>
-               <i class="glyphicon glyphicon-eye-open"> Detail</i>
+               <i class="glyphicon glyphicon-eye-open"></i>  Lihat Nota
               <% end %>
             </td>
             <td>
                <%= link_to edit_service_path(s), class: "btn btn-default" do %>
-               <i class="glyphicon glyphicon-pencil"> Ubah</i>
+               <i class="glyphicon glyphicon-cog"></i> Ubah
               <% end %>
             </td>
             <td>
                <%= link_to service_path(s), method: :delete, data: { confirm: 'Apakah anda yakin ingin menghapus servis ini?' }, class: "btn btn-default" do %>
-               <i class="glyphicon glyphicon-trash"> Hapus</i>
+               <i class="glyphicon glyphicon-trash"></i> Hapus
               <% end %>
             </td>
          </tr>

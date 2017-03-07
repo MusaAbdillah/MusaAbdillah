@@ -42,7 +42,10 @@
   color: white;
   opacity: 0.8;
 }
-
+.navbar-toggle collapsed {
+   background-color: #fff;
+   color: #fff;
+}
 .navbar-login {
   border: 1px solid #fff;
   border-radius: 5px;
@@ -59,49 +62,18 @@
   color: #e60000;
 }
 
-li a, .dropbtn {
- display: inline-block;
- color: white;
- text-align: center;
- padding: 10px 5px;
- text-decoration: none;
-}
 
-li a:hover, .dropdown:hover .dropbtn {
- background-color: #e60000;
-}
-
-li.dropdown {
- display: inline-block;
-}
-
-.dropdown-content {
- display: none;
- position: absolute;
- background-color: #e60000;
- min-width: 170px;
-}
-
-.dropdown-content a {
- padding-left:5px;
- text-decoration: none;
- display: block;
- text-align: left;
- font-size: 12px;
-}
-
-.dropdown-content a:hover {
- background-color: transparant;
- border: 1px solid #e60000;
-}
-
-.dropdown:hover .dropdown-content {
- display: block;
-}
 /* footer class*/
 navbar-fixed-bottom #footer{
    padding-top: 100px;
    margin-top: 100px;
+}
+
+.dropdown-menu {
+   background-color: #e60000;
+   padding-top: 10px;
+   margin-top: 10px;
+   color: #fff;
 }
 /* flash message*/
 .flash-messages {
@@ -111,12 +83,12 @@ navbar-fixed-bottom #footer{
 /*button class*/
 .btn-danger {
   background-color: #e60000;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 .btn-danger:hover {
 	background-color: #e60000;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 .purchase:hover {

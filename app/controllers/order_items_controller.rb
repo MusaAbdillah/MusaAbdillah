@@ -25,7 +25,7 @@ class OrderItemsController < ApplicationController
   def final_order
      @order = current_order
      session[:order_id] = nil
-     redirect_to @order, flash: {success: "Yay Pesanan berhasil di buat! terima kasih sudah berbelanja di toko kami :)"}
+     redirect_to @order, flash: {success: "Yay! Pesanan berhasil di buat! terima kasih sudah berbelanja di toko kami :), jangan lupa segera melakukan pembayaran ya :)"}
   end
 
   private

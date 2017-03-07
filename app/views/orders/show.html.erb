@@ -10,8 +10,7 @@
                      <td></td>
                      <td><strong>Harga per Unit</strong</td>
                      <td><strong>Jumlah</strong></td>
-                     <td></td>
-                     <td class="text-right"><strong>Subtotal</strong></td>
+                     <td class="text-right" colspan="2"><strong>Subtotal</strong></td>
                   </tr>
                </thead>
                <tbody>
@@ -21,8 +20,7 @@
                      <td><%= image_tag oi.stok.gambar_url(:thumb) %></td>
                      <td>Rp <%= number_with_delimiter(oi.unit_price, :delimiter => '.') %></td>
                      <td><%= oi.quantity %></td>
-                     <td>Rp <%= number_with_delimiter(oi.unit_price, :delimiter => '.') %> x <%= oi.quantity %></td>
-                     <td class="text-right">Rp <%= number_with_delimiter(oi.total_price, :delimiter => '.') %></td>
+                     <td class="text-right" colspan="2">Rp <%= number_with_delimiter(oi.total_price, :delimiter => '.') %></td>
                   </tr>
                <% end %>
                   <tr class="text-right">
@@ -38,6 +36,7 @@
                </tbody>
             </table>
          </div>
+         <%= link_to "Belanja Lagi Sekarang!", stoks_path, class: "btn btn-lg btn-danger pull-right" %>
       </div>
    </div>
 </div>
