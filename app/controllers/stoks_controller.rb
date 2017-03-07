@@ -42,7 +42,8 @@ class StoksController < ApplicationController
   end
 
   def set_nil
-     redirect_to @stok, flash:{success: "berhasil di set kosong"}
+     @stok.active = 0
+     redirect_to @stok, flash:{notice: "Produk berhasil di set kosong!"}
   end
 
   # PATCH/PUT /stoks/1

@@ -23,7 +23,7 @@ class TroubelsController < ApplicationController
 
     respond_to do |format|
       if @troubel.save
-        format.html { redirect_to troubels_path, notice: 'Permasalahan berhasil di simpan' }
+        format.html { redirect_to troubels_path, flash: {success: 'Permasalahan berhasil di simpan' }}
         format.json { render :show, status: :created, location: @troubel }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class TroubelsController < ApplicationController
   def update
     respond_to do |format|
       if @troubel.update(troubel_params)
-        format.html { redirect_to @troubel, notice: 'Permasalahan berhasil di perbarui' }
+        format.html { redirect_to @troubel, flash: {notice: 'Permasalahan berhasil di perbarui' } }
         format.json { render :show, status: :ok, location: @troubel }
       else
         format.html { render :edit }
@@ -51,7 +51,7 @@ class TroubelsController < ApplicationController
   def destroy
     @troubel.destroy
     respond_to do |format|
-      format.html { redirect_to troubels_url, notice: 'Permasalahan berhasil di hapus' }
+      format.html { redirect_to '/troubels', flash: {error: 'Permasalahan berhasil di hapus' } }
       format.json { head :no_content }
     end
   end
