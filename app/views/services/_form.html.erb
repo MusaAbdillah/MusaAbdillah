@@ -1,0 +1,27 @@
+<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+   <h1>Form Servis</h1>
+   <div class="panel panel-default">
+   <!-- Default panel contents -->
+      <div class="panel-body">
+
+         <div class="col-md-9 col-sm-9">
+
+            <%= form_for(@service) do |s| %>
+            <div class="form-group">
+               <%= s.label :Kode_Servis, class: "control-label"%>
+               <%= s.text_field :code, class: "form-control" %>
+            </div>
+            <div class="form-group">
+               <%= s.label :Jenis_Permasalahan, class: "control-label"%>
+               <%= s.collection_select 'troubel_id', Troubel.all, :id, :name, {prompt: "Silahkan pilih permasalahan"}, {class: "form-control"} %>
+            </div>
+            <div class="form-group">
+               <%= s.label :Pelanggan, class: "control-label"%>
+               <%= s.collection_select 'client_id', Client.all, :id, :first_name, {prompt: "Silahkan pilih pelanggan"}, {class: "form-control"} %>
+            </div>
+               <%= s.submit "Simpan", class: "btn btn-default btn-lg" %>
+            <% end %>
+         </div>
+      </div>
+   </div>
+</div><!-- col-md-12 -->

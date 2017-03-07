@@ -47,7 +47,7 @@
 
       <div class="col-md-2 col-sm-2">
          <% if can? :destroy, Stok %>
-            <%= link_to  @stok, class: "btn btn-default btn-block" do %>
+            <%= link_to set_nil_path(@stok), class: "btn btn-default btn-block" do %>
                <i class="glyphicon glyphicon-remove"></i> Set Kosong
                <% end %>
             <%= link_to edit_stok_path(@stok),:method => "get", class: "btn btn-default btn-block" do %>

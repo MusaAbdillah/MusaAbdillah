@@ -40,10 +40,9 @@
                <%= s.label :kategori_id, class: "control-label"%>
                <%= s.collection_select 'kategori_id', Kategori.all, :id, :nama, {prompt: "Silahkan pilih Kategori"}, {class: "form-control"} %>
             </div>
-               <%= s.hidden_field :active, value: true %>
                <%= s.submit "Simpan", class: "btn btn-default btn-lg" %>
             <% end %>
          </div>
       </div>
-  </div>
+   </div>
 </div><!-- col-md-12 -->

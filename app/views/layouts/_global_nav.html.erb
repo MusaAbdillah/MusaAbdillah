@@ -18,6 +18,14 @@
          <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                <% if can? :manage, @activities %>
+               <li><%= link_to services_path(@service) do %>
+                     <i class="glyphicon glyphicon-wrench"> Servis</i>
+                     <% end %>
+               </li>
+               <li><%= link_to clients_path(@client) do %>
+                     <i class="glyphicon glyphicon-user"> Pelanggan</i>
+                     <% end %>
+               </li>
                <li class="dropdown">
     			      <a href="#" class="dropbtn"><span class="glyphicon glyphicon-gift"></span> Stok</a>
     			         <div class="dropdown-content">

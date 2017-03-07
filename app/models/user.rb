@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
    #record aktifitas
    include PublicActivity::Model
    tracked owner: ->(controller, model) { controller && controller.current_user}
-   
+
    #relasi database
    belongs_to :role
 

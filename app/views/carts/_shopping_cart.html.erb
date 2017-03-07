@@ -10,7 +10,8 @@
 
 <% if @order_items.size == 0 %>
    <p class="text-center">
-      tidak ada produk di keranjang.  Silahkan <%= link_to "kembali", root_path %> dan tambahkan produk ke keranjang anda.
+      Anda tidak mempunyai produk yang di tambahkan ke keranjang.<br/><br/>
+      <%= link_to "Belanja Sekarang", stoks_path(@stok), class: "btn btn-lg btn-danger"%>
    </p>
 <% else %>
    <div class="container well">
@@ -18,5 +19,6 @@
          <%= render 'carts/cart_row', stok: order_item.stok, order_item: order_item, show_total: true %>
       <% end %>
       <%= link_to "Selesaikan Transaksi", check_out_route_path(:cart), class: "btn btn-default"%>
+      <%= link_to "Belanja Lagi", stoks_path(@stok), class: "btn btn-danger"%>
    </div>
 <% end %>

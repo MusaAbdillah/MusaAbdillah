@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210135227) do
+ActiveRecord::Schema.define(version: 20170306232633) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20170210135227) do
   add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "image",        limit: 255
+    t.string   "first_name",   limit: 255
+    t.string   "last_name",    limit: 255
+    t.text     "address",      limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "phone_number", limit: 255
+  end
 
   create_table "kategoris", force: :cascade do |t|
     t.string   "gambar",     limit: 255
@@ -75,6 +85,19 @@ ActiveRecord::Schema.define(version: 20170210135227) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.integer  "sub_total",  limit: 4
+    t.integer  "total",      limit: 4
+    t.integer  "client_id",  limit: 4
+    t.integer  "troubel_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "services", ["client_id"], name: "index_services_on_client_id", using: :btree
+  add_index "services", ["troubel_id"], name: "index_services_on_troubel_id", using: :btree
+
   create_table "stoks", force: :cascade do |t|
     t.string   "gambar",      limit: 255
     t.string   "nama",        limit: 255
@@ -89,6 +112,14 @@ ActiveRecord::Schema.define(version: 20170210135227) do
   end
 
   add_index "stoks", ["user_id"], name: "index_stoks_on_user_id", using: :btree
+
+  create_table "troubels", force: :cascade do |t|
+    t.text     "name",       limit: 65535
+    t.text     "grade",      limit: 65535
+    t.integer  "price",      limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

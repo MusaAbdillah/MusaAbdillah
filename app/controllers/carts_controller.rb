@@ -6,8 +6,4 @@ class CartsController < ApplicationController
       format.html
     end
   end
-
-  def check_out
-    redirect_to '/orders'
-  end
 end

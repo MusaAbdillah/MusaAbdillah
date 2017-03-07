@@ -1,0 +1,45 @@
+<div class="container">
+   <h1>Daftar Servis</h1>
+   <table class="table table-bordered">
+     <thead>
+        <tr>
+           <th>
+              <%= link_to new_service_path, class: "btn btn-default" do %>
+              <i class="glyphicon glyphicon-plus"></i> Tambahan Servis
+              <% end %>
+           </th>
+        </tr>
+       <tr>
+         <th>Kode Servis</th>
+         <th>Nama Pelanggan</th>
+         <th>Jenis Servis</th>
+         <th colspan="3"></th>
+       </tr>
+     </thead>
+
+     <tbody>
+       <% @services.each do |s| %>
+         <tr>
+            <td><%= s.code %></td>
+            <td><%= s.client.first_name %> <%= s.client.last_name %></td>
+            <td><%= s.troubel.name %></td>
+            <td>
+               <%= link_to service_path(s), class: "btn btn-default" do %>
+               <i class="glyphicon glyphicon-eye-open"> Detail</i>
+              <% end %>
+            </td>
+            <td>
+               <%= link_to edit_service_path(s), class: "btn btn-default" do %>
+               <i class="glyphicon glyphicon-pencil"> Ubah</i>
+              <% end %>
+            </td>
+            <td>
+               <%= link_to service_path(s), method: :delete, data: { confirm: 'Apakah anda yakin ingin menghapus servis ini?' }, class: "btn btn-default" do %>
+               <i class="glyphicon glyphicon-trash"> Hapus</i>
+              <% end %>
+            </td>
+         </tr>
+       <% end %>
+     </tbody>
+   </table>
+</div>

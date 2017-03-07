@@ -1,0 +1,2 @@
+module TroubelsHelper
+end

@@ -23,25 +23,22 @@ class OrderItem < ActiveRecord::Base
          self[:total_price] += self[:total_price]
       end
 
-
-
       private
-      def stok_present
-         if stok.nil?
-         errors.add(:stok, "stok tidak valid")
+         def stok_present
+            if stok.nil?
+               errors.add(:stok, "stok tidak valid")
+            end
          end
-      end
 
-      def order_present
-         if order.nil?
-            errors.add(:order, "stok tidak valid atau sudah di tambahkan")
+         def order_present
+            if order.nil?
+               errors.add(:order, "stok tidak valid atau sudah di tambahkan")
+            end
          end
-      end
 
-
-  def finalize
-    self[:unit_price] = unit_price
-    self[:total_price] = quantity * self[:unit_price]
-  end
+         def finalize
+            self[:unit_price] = unit_price
+            self[:total_price] = quantity * self[:unit_price]
+         end
 
 end

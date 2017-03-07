@@ -1,20 +1,21 @@
 <!--login Navigation -->
 <div class="row">
-<div class="col-md-12 col-sm-12">
-  <nav class="navbar navbar-fixed-top">
-     <div class="col-md-6 col-sm-6">
-        <div class="navbar-header">
-           <a class="navbar-brand" href="/stoks" >AB Computer</a>
-        </div>
-     </div>
+   <div class="col-md-12 col-sm-12">
+      <nav class="navbar navbar-fixed-top">
+         <div class="col-md-6 col-sm-6">
+            <div class="navbar-header">
+               <a class="navbar-brand" href="/stoks" >AB Computer</a>
+            </div>
+         </div>
 
-     <div class="col-md-6 col-sm-6">
-        <div id="navbar" class="collapse navbar-collapse pull-right">
-           <ul class="nav navbar-nav navbar-login">
-              <li><%= link_to "Masuk", user_session_path %></li>
-           </ul>
-        </div><!--/.nav-collapse -->
-     </div>
-  </nav>
-</div>
+         <div class="col-md-6 col-sm-6">
+            <div id="navbar" class="collapse navbar-collapse pull-right">
+               <ul class="nav navbar-nav navbar-login">
+                  <li><%= link_to "Masuk", user_session_path %></li>
+                  <li><%= link_to "Daftar", new_user_registration_path %></li>
+               </ul>
+            </div><!--/.nav-collapse -->
+         </div>
+      </nav>
+   </div>
 </div>
