@@ -51,11 +51,11 @@ class StoksController < ApplicationController
   def update
     respond_to do |format|
       if @stok.update(stok_params)
-        format.html { redirect_to @stoks, notice: "Produk #{@stok.nama} berhasil di perbarui." }
+        format.html { redirect_to @stok, notice: "Produk #{@stok.nama} berhasil di perbarui." }
         format.json { render :show, status: :ok, location: @stok }
       else
         format.html { render :edit }
-        format.json { render json: @stoks.errors, status: :unprocessable_entity }
+        format.json { render json: @stok.errors, status: :unprocessable_entity }
       end
     end
   end

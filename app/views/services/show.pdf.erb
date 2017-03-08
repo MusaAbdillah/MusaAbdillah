@@ -41,15 +41,6 @@
                <td><h3 style="font-weight: bold;"> Rp <%= number_with_delimiter(@service.troubel.price, :delimiter => '.') %> </h3></td>
             </tr>
          </tbody>
-         <tfoot>
-            <tr>
-               <td colspan="3" class="text-right">
-                  <%= link_to service_path(@service, :format => :pdf), class: "btn btn-default" do %>
-                     <i class="glyphicon glyphicon-print"></i> Cetak
-                     <% end %>
-               </td>
-            </tr>
-         </tfoot>
       </table>
    </div>
 </div>
