@@ -16,21 +16,21 @@ class OrderItemsController < ApplicationController
    end
 
    def destroy
-     @order = current_order
-     @order_item = @order.order_items.find(params[:id])
-     @order_item.destroy
-     @order_items = @order.order_items
-  end
-
-  def final_order
-     @order = current_order
-     session[:order_id] = nil
-     redirect_to @order, flash: {success: "Yay! Pesanan berhasil di buat! terima kasih sudah berbelanja di toko kami :), jangan lupa segera melakukan pembayaran ya :)"}
-  end
-
-  private
-
-   def order_item_params
-      params.require(:order_item).permit(:quantity, :stok_id)
+      @order = current_order
+      @order_item = @order.order_items.find(params[:id])
+      @order_item.destroy
+      @order_items = @order.order_items
    end
+
+   def final_order
+      @order = current_order
+      session[:order_id] = nil
+      redirect_to @order, flash: {success: "Yay! Pesanan berhasil di buat! terima kasih sudah berbelanja di toko kami :), jangan lupa segera melakukan pembayaran ya :)"}
+   end
+
+   private
+
+      def order_item_params
+         params.require(:order_item).permit(:quantity, :stok_id)
+      end
 end

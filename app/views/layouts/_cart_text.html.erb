@@ -1,4 +1,6 @@
 <%= link_to cart_path, class: "nav navbar-link" do %>
-<i class="glyphicon glyphicon-shopping-cart"></i> <i class="label label-lg label-success"><%= current_order.order_items.size %> item Rp <%= number_with_delimiter(current_order.subtotal, :delimiter => '.') %>
-</i>
+   <i class="glyphicon glyphicon-shopping-cart"></i>
+   <i class="label label-lg label-success">
+      <%= current_order.order_items.size %> item Rp <%= number_with_delimiter(current_order.subtotal, :delimiter => '.') %>
+   </i>
 <% end %>
