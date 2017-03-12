@@ -23,8 +23,8 @@ gem 'devise-i18n'
 gem "cancancan"
 gem "nested_form"
 gem 'public_activity'
+gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'pdfkit'
 gem 'cloudinary'
 
 group :development do

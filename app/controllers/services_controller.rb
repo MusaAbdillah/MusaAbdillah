@@ -10,6 +10,12 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+     respond_to do |format|
+        format.html
+        format.json
+        format.pdf { render pdf: 'show' }
+     end
+
   end
 
   # GET /services/new
