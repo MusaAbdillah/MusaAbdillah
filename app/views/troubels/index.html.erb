@@ -23,7 +23,7 @@
          <tr>
             <td><%= t.name %></td>
             <td><%= t.grade %></td>
-            <td>Rp <%= number_with_delimiter(t.price, :delimiter => '.') %></td>
+            <td><%= t.price %></td>
             <td><%= link_to edit_troubel_path(t), class: "btn btn-default" do%>
                <i class="glyphicon glyphicon-cog"></i> Ubah
                <% end %>

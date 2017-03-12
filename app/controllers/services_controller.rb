@@ -10,11 +10,6 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-     respond_to do |format|
-        format.html
-        format.json
-        format.pdf { render template: 'services/show', pdf: 'show'}
-     end
   end
 
   # GET /services/new
@@ -33,7 +28,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, flash: {success: 'Servis berhasil di buat'} }
+        format.html { redirect_to @service, notice: 'Servis berhasil di buat' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
@@ -47,7 +42,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to @service, flash: {notice: 'Servis berhasil di perbarui'} }
+        format.html { redirect_to @service, notice: 'Servis berhasil di perbarui' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
@@ -61,7 +56,7 @@ class ServicesController < ApplicationController
   def destroy
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url,flash: {error: 'Servis berhasil di hapus'} }
+      format.html { redirect_to services_url, notice: 'Servis berhasil di hapus' }
       format.json { head :no_content }
     end
   end
