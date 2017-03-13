@@ -1,1 +1,28 @@
-
+<div class="container">
+   <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-6-offset-3  text-center">
+      <table class="table table-bordered">
+         <thead>
+            <tr>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  <%= cl_image_tag @client.image_url(:normal) %>
+               </td>
+            </tr>
+            <tr>
+               <tr>
+                  <td> <h3> <%= @client.first_name %> <%= @client.last_name %> </h3></td>
+               </tr>
+               <tr>
+                  <td> <h4> <%= @client.phone_number %> </h3></td>
+               </tr>
+               <tr>
+                  <td> <h5> <%= @client.address %> </h3></td>
+               </tr>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>

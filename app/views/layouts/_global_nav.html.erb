@@ -47,27 +47,26 @@
                   </ul>
                </li>
     		      <% end %>
+               <% if can? :manage, @activities %>
                <li role="presentation" class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                      <span class="glyphicon glyphicon-user"></span> Akun<span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
                      <li><%= link_to "Pengaturan",edit_user_registration_path %></li>
-                     <% if can? :manage, @activities %>
                      <li><%= link_to "Angkat Admin", new_user_registration_path %></li>
                      <li><%= link_to "Aktifitas", activities_path %></li>
                      <li><%= link_to "Hak Akses", roles_path %></li>
-                     <% end %>
-                     <li role="separator" class="divider"></li>
-                     <li>
-                        <%= link_to destroy_user_session_path, method: :delete do %>
-              	            <i class="glyphicon glyphicon-log-out"> Keluar</i>
-              		           <% end %>
-                     </li>
                   </ul>
                </li>
+               <% end %>
                <li class="cart-text">
                   <%= render 'layouts/cart_text' %>
+               </li>
+               <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                     <i class="glyphicon glyphicon-log-out"></i> Keluar
+                       <% end %>
                </li>
             </ul>
         </div><!--/.nav-collapse -->
