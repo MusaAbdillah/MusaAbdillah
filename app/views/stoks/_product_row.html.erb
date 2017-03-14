@@ -1,26 +1,26 @@
-      <div class="col-md-3 col-sm-3" id="stok">
-         <table class="table table-responsive table-bordered text-center">
-            <tbody style="height: 350px;">
-               <tr style="height: 250px;">
-                  <td>
-                     <%= link_to (cl_image_tag stok.gambar_url(:normal)), stok_path(stok) %>
-                  </td>
-               </tr>
-               <tr style="height:100px;">
-                  <td>
-                     <p><b><%= link_to ((stok.nama).truncate_words(20)), stok_path(stok) %></b></p>
-                  </td>
-               </tr>
-               <tr>
-                  <td>
-                     <%= form_for order_item, remote: true do |f| %>
-                        <h4>Harga: <span style="color: #e60000;">Rp <%= number_with_delimiter(stok.harga_jual, :delimiter => '.') %></span></h4>
-                        <%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1, placeholder: "jumlah" %>
-                        <%= f.hidden_field :stok_id, value: stok.id %>
-                        <%= f.submit "Tambah ke Keranjang", class: "btn btn-danger btn-block purchase" %>
-                     <% end %>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
+<div class="col-md-3 col-sm-3" id="stok">
+   <table class="table table-responsive table-bordered text-center">
+      <tbody style="height: 350px;">
+         <tr style="height: 250px;">
+            <td>
+               <%= link_to (cl_image_tag stok.gambar_url(:normal)), stok_path(stok) %>
+            </td>
+         </tr>
+         <tr style="height:100px;">
+            <td>
+               <p><b><%= link_to ((stok.nama).truncate_words(20)), stok_path(stok) %></b></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <%= form_for order_item, remote: true do |f| %>
+                  <h4>Harga: <span style="color: #e60000;">Rp <%= number_with_delimiter(stok.harga_jual, :delimiter => '.') %></span></h4>
+                  <%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1, placeholder: "jumlah" %>
+                  <%= f.hidden_field :stok_id, value: stok.id %>
+                  <%= f.submit "Tambah ke Keranjang", class: "btn btn-danger btn-block purchase" %>
+               <% end %>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>

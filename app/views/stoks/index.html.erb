@@ -2,8 +2,9 @@
 <% if @stoks.size == 0 %>
    <p class="text-center"> Tidak ada produk yang siap di jual untuk saat ini </p>
 <% else %>
-         <div class="col-md-12 col-sm-12">
-            <div class="container">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 col-sm-12">
                <%= search_form_for @search do |f| %>
                   <div class="input-group">
                      <%= f.text_field :nama_cont, placeholder: "Cari Produk", class: "form-control",id:"form-search" %>
@@ -17,6 +18,7 @@
                   <%= render "product_row", stok: stok, order_item: @order_item %>
                <% end %>
             </div>
+         </div>
             <nav class="pagination pull-right">
                <ul class="pagination-xs">
                   <nav aria-label="...">

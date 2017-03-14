@@ -1,56 +1,58 @@
-<div class="col-md-12 col-sm-12">
-   <div class="container">
-      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-         <h1>Pengaturan Akun</h1>
-         <div class="panel panel-default">
-            <div class="panel-body">
-               <div class="form">
-               <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-               <%= devise_error_messages! %>
+<div class="container">
+   <div class="row">
+      <div class="col-md-12 col-sm-12">
+         <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+            <h1>Pengaturan Akun</h1>
+            <div class="panel panel-default">
+               <div class="panel-body">
+                  <div class="form">
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= devise_error_messages! %>
 
-               <fieldset disabled>
+                  <fieldset disabled>
+                     <div class="form-group">
+                        <div class="field">
+                           <%= f.label :email %><br />
+                           <%= f.email_field :email, autofocus: true, class: "form-control", id: "disabledTextInput" %>
+                        </div>
+                     </div>
+                  </fieldset>
+
+                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                  <% end %>
+
                   <div class="form-group">
                      <div class="field">
-                        <%= f.label :email %><br />
-                        <%= f.email_field :email, autofocus: true, class: "form-control", id: "disabledTextInput" %>
+                        <%= f.label :kata_sandi_baru %>
+                        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                        <% if @minimum_password_length %>
+                        <em>minimal <%= @minimum_password_length %> karakter </em>
+                        <% end %>
                      </div>
                   </div>
-               </fieldset>
 
-               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-               <% end %>
-
-               <div class="form-group">
-                  <div class="field">
-                     <%= f.label :kata_sandi_baru %>
-                     <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-                     <% if @minimum_password_length %>
-                     <em>minimal <%= @minimum_password_length %> karakter </em>
-                     <% end %>
+                  <div class="form-group">
+                     <div class="field">
+                        <%= f.label :konfirmasi_kata_sandi %><br />
+                        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+                     </div>
                   </div>
-               </div>
 
-               <div class="form-group">
-                  <div class="field">
-                     <%= f.label :konfirmasi_kata_sandi %><br />
-                     <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+                  <div class="form-group">
+                     <div class="field">
+                        <%= f.label :kata_sandi_lama %> <i>(kami membutuhkan kata sandi anda saat ini untuk konfirmasi perubahan)</i><br />
+                        <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+                     </div>
                   </div>
-               </div>
 
-               <div class="form-group">
-                  <div class="field">
-                     <%= f.label :kata_sandi_lama %> <i>(kami membutuhkan kata sandi anda saat ini untuk konfirmasi perubahan)</i><br />
-                     <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+                  <div class="actions">
+                     <%= f.submit "Simpan", class: "btn btn-default btn-lg" %>
                   </div>
+                  <% end %>
+                  </div>
+                  <p><%= button_to "Hapus Akun", registration_path(resource_name), data: { confirm: "Apakah anda yakin?" }, method: :delete, class: "btn btn-danger btn-xs pull-right" %></p>
                </div>
-
-               <div class="actions">
-                  <%= f.submit "Simpan", class: "btn btn-default btn-lg" %>
-               </div>
-               <% end %>
-               </div>
-               <p><%= button_to "Hapus Akun", registration_path(resource_name), data: { confirm: "Apakah anda yakin?" }, method: :delete, class: "btn btn-danger btn-xs pull-right" %></p>
             </div>
          </div>
       </div>
