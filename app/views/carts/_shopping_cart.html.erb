@@ -14,7 +14,7 @@
       <%= link_to "Belanja Sekarang", stoks_path(@stok), class: "btn btn-lg btn-danger"%>
    </p>
 <% else %>
-   <div class="container well">
+   <div class="container">
       <% @order_items.each do |order_item| %>
          <%= render 'carts/cart_row', stok: order_item.stok, order_item: order_item, show_total: true %>
       <% end %>
