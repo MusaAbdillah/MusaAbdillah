@@ -10,3 +10,6 @@ class Client < ActiveRecord::Base
    end
 
 end
+
+#demo@abtech.com
+#demoAplikasi_99

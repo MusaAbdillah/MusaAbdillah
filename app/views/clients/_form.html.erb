@@ -1,45 +1,49 @@
-<div class="col-md-12 col-sm-12">
-  <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-     <h1>Form Pelanggan</h1>
-     <div class="panel panel-default">
-     <!-- Default panel contents -->
-        <div class="panel-body">
+<div class="container">
+   <div class="row">
+      <div class="col-md-12 col-sm-12">
+         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+            <h1>Form Pelanggan</h1>
+            <div class="panel panel-default">
+           <!-- Default panel contents -->
+               <div class="panel-body">
 
-           <div class="col-md-9 col-sm-9">
-             <div class="thumbnail thumbnail-form">
-               <%= image_tag @client.image_url(:thumb), id: "image-preview" %>
-            </div>
+                  <div class="col-md-9 col-sm-9">
+                    <div class="thumbnail thumbnail-form">
+                     <%= image_tag @client.image_url(:thumb), id: "image-preview" %>
+                  </div>
 
-              <%= form_for(@client) do |s| %>
-              <!-- error explanation-->
-              <div class="form-group">
-                 <%= s.label :image, class: "control-label"%>
-                 <%= s.file_field :image, id: "image-source", onchange: "previewImage();"%>
-                 <p class="form-text text-muted">
-                    File gambar harus berekstensi jpg, jpeg atau png.
-                 </p>
-              </div>
-              <div class="form-group">
-                 <%= s.label :Nama_Depan, class: "control-label"%>
-                 <%= s.text_field :first_name, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                 <%= s.label :Nama_Belakang, class: "control-label"%>
-                 <%= s.text_field :last_name, class: "form-control" %>
-              </div>
+                    <%= form_for(@client) do |s| %>
+                    <!-- error explanation-->
+                    <div class="form-group">
+                       <%= s.label :image, class: "control-label"%>
+                       <%= s.file_field :image, id: "image-source", onchange: "previewImage();"%>
+                       <p class="form-text text-muted">
+                          File gambar harus berekstensi jpg, jpeg atau png.
+                       </p>
+                    </div>
+                    <div class="form-group">
+                       <%= s.label :Nama_Depan, class: "control-label"%>
+                       <%= s.text_field :first_name, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                       <%= s.label :Nama_Belakang, class: "control-label"%>
+                       <%= s.text_field :last_name, class: "form-control" %>
+                    </div>
 
-              <div class="form-group">
-                 <%= s.label :No_Handphone, class: "control-label"%>
-                 <%= s.text_field :phone_number, class: "form-control" %>
+                    <div class="form-group">
+                       <%= s.label :No_Handphone, class: "control-label"%>
+                       <%= s.text_field :phone_number, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                       <%= s.label :Alamat, class: "control-label"%>
+                       <%= s.text_area :address, min: 0, class: "form-control" %>
+                    </div>
+                       <%= s.submit "Simpan", class: "btn btn-default btn-lg" %>
+                    <% end %>
+                 </div>
               </div>
-              <div class="form-group">
-                 <%= s.label :Alamat, class: "control-label"%>
-                 <%= s.text_area :address, min: 0, class: "form-control" %>
-              </div>
-                 <%= s.submit "Simpan", class: "btn btn-default btn-lg" %>
-              <% end %>
            </div>
-        </div>
-     </div>
-  </div><!-- col-md-12 -->
-  </div>
+         </div><!-- col-md-12 -->
+      </div>
+   </div>
+</div>

@@ -23,6 +23,7 @@ class OrderItem < ActiveRecord::Base
          self[:total_price] += self[:total_price]
       end
 
+
       private
          def stok_present
             if stok.nil?

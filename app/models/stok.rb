@@ -15,6 +15,7 @@ class Stok < ActiveRecord::Base
 	validates :harga_beli, :harga_jual, :numericality => { :greater_than_or_equal_to => 0, :message => "harga harus lebih dari atau sama dengan nol" }
 
 	before_create :set_active
+	after_rollback :update_quantity
 
 
 	#method untuk set default produk aktif
@@ -30,10 +31,12 @@ class Stok < ActiveRecord::Base
 	def oi_quantity
 		order_items.collect { |oi| oi.valid? ? (oi.quantity) : 0 }.sum
 	end
+
 	#method untuk mengurangi jumlah stok
 	def update_quantity
-		self[:jumlah] = self[:jumlah] - oi_quantity
+		self[:jumlah] -= oi_quantity
 	end
+
 
 
 end

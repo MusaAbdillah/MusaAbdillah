@@ -1,62 +1,64 @@
-<%= render 'layouts/global_nav' %>
+<div class="container">
+   <div class="row">      
+      <div class="col-md-12 col-sm-12">
+         <div class="col-md-10 col-sm-10">
+            <h3><strong><%= @stok.nama %></strong></h3>
+         </div>
+         <div class="row">
+      		<div class="col-md-4 col-sm-4">
+      			<div class="thumbnail">
+      				<%= image_tag @stok.gambar_url(:normal) %>
+      			   <div class="caption">
+      				   <h2 style=" text-align:center; "> <strong> Rp <%= number_with_delimiter(@stok.harga_jual, :delimiter => '.') %> </strong></h2>
+      			   </div>
+      			</div>
+      		</div>
 
-<div class="col-md-12 col-sm-12">
-   <div class="col-md-10">
-      <h3><strong><%= @stok.nama %></strong></h3>
+      		<div class="col-md-6 col-sm-6">
+      		   <!-- table-->
+        		   <table class="table table-default">
+      		      <tbody>
+                     <% if can? :manage, @activities %>
+      			      <tr>
+      				      <td> <strong> Harga Beli </strong> </td>
+      				      <td> Rp <%= number_with_delimiter(@stok.harga_beli, :delimiter => '.') %> </td>
+      			      </tr>
+                     <tr>
+      				      <td> <strong> Harga Jual </strong> </td>
+      				      <td> Rp <%= number_with_delimiter(@stok.harga_jual, :delimiter => '.') %> </td>
+      			      </tr>
+      			      <tr>
+                     <tr>
+         				   <td> <strong> Keuntungan </strong></td>
+         				   <td> Rp <%= number_with_delimiter(@stok.profit, :delimiter => '.')%></td>
+         			   </tr>
+                     <% end %>
+      				   <!-- number_with_delimiter used for sparate integer to currency format-->
+      				      <td> <strong> Jumlah </strong> </td>
+                        <td> <%= @stok.update_quantity %> </td>
+      			      </tr>
+      			      <tr>
+      				      <td> <strong> Kategori </strong></td>
+      				      <td> <%= @stok.kategori.nama %> </td>
+      			      </tr>
+      		      </tbody>
+               </table>
+            </div>
+
+            <div class="col-md-2 col-sm-2">
+               <% if can? :destroy, Stok %>
+                  <%= link_to set_nil_path(@stok), class: "btn btn-default btn-block" do %>
+                     <i class="glyphicon glyphicon-remove"></i> Set Kosong
+                     <% end %>
+                  <%= link_to edit_stok_path(@stok),:method => "get", class: "btn btn-default btn-block" do %>
+                     <i class="glyphicon glyphicon-cog"></i> Ubah
+                     <% end %>
+                  <%= link_to stok_path(@stok),method: :delete, data: {confirm: "Apakah anda yakin akan menghapus produk #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
+                     <i class="glyphicon glyphicon-trash"></i> Hapus
+                     <% end %>
+               <% end %>
+            </div>
+      	</div>
+      </div><!-- col-md-12 -->
    </div>
-   <div class="row">
-		<div class="col-md-4 col-sm-4">
-			<div class="thumbnail">
-				<%= image_tag @stok.gambar_url(:normal) %>
-			   <div class="caption">
-				   <h2 style=" text-align:center; "> <strong> Rp <%= number_with_delimiter(@stok.harga_jual, :delimiter => '.') %> </strong></h2>
-			   </div>
-			</div>
-		</div>
-
-		<div class="col-md-6 col-sm-6">
-		   <!-- table-->
-  		   <table class="table table-default">
-		      <tbody>
-               <% if can? :manage, @activities %>
-			      <tr>
-				      <td> <strong> Harga Beli </strong> </td>
-				      <td> Rp <%= number_with_delimiter(@stok.harga_beli, :delimiter => '.') %> </td>
-			      </tr>
-               <tr>
-				      <td> <strong> Harga Jual </strong> </td>
-				      <td> Rp <%= number_with_delimiter(@stok.harga_jual, :delimiter => '.') %> </td>
-			      </tr>
-			      <tr>
-               <tr>
-   				   <td> <strong> Keuntungan </strong></td>
-   				   <td> Rp <%= number_with_delimiter(@stok.profit, :delimiter => '.')%></td>
-   			   </tr>
-               <% end %>
-				   <!-- number_with_delimiter used for sparate integer to currency format-->
-				      <td> <strong> Jumlah </strong> </td>
-				      <td> <%= @stok.update_quantity %> </td>
-			      </tr>
-			      <tr>
-				      <td> <strong> Kategori </strong></td>
-				      <td> <%= @stok.kategori.nama %> </td>
-			      </tr>
-		      </tbody>
-         </table>
-      </div>
-
-      <div class="col-md-2 col-sm-2">
-         <% if can? :destroy, Stok %>
-            <%= link_to set_nil_path(@stok), class: "btn btn-default btn-block" do %>
-               <i class="glyphicon glyphicon-remove"></i> Set Kosong
-               <% end %>
-            <%= link_to edit_stok_path(@stok),:method => "get", class: "btn btn-default btn-block" do %>
-               <i class="glyphicon glyphicon-cog"></i> Ubah
-               <% end %>
-            <%= link_to stok_path(@stok),method: :delete, data: {confirm: "Apakah anda yakin akan menghapus produk #{@stok.nama} ?"}, class: "btn btn-default btn-block" do %>
-               <i class="glyphicon glyphicon-trash"></i> Hapus
-               <% end %>
-         <% end %>
-      </div>
-	</div>
-</div><!-- col-md-12 -->
+</div>

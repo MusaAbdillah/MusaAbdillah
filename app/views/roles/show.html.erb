@@ -2,34 +2,34 @@
    <p class="text-center">tidak ada user yang memiliki hak akses ini</p>
    <% else %>
 <div class="container">
-<table class="table table-bordered">
-   <thead>
-      <h3>Akun dengan Hak Akses <%= @role.nama %></h3>
-      <tr>
-         <th>
-            Email
-         </th>
-         <th>
-            Jenis Hak Akses
-         </th>
-         <th colspan="2">
-         </th>
-      </tr>
-   </thead>
-   <tbody>
-      <% @users.each do |r| %>
-      <tr>
-         <td>
-            <%= r.email %>
-         </td>
-         <td>
-            <%= r.role.nama %>
-         </td>
-         <td>
-         </td>
-      </tr>
-      <% end %>
-   </tbody>
-</table>
+   <table class="table table-bordered">
+      <thead>
+         <h3>Akun dengan Hak Akses <%= @role.nama %></h3>
+         <tr>
+            <th>
+               Email
+            </th>
+            <th>
+               Jenis Hak Akses
+            </th>
+            <th colspan="2">
+            </th>
+         </tr>
+      </thead>
+      <tbody>
+         <% @users.each do |r| %>
+         <tr>
+            <td>
+               <%= r.email %>
+            </td>
+            <td>
+               <%= r.role.nama %>
+            </td>
+            <td>
+            </td>
+         </tr>
+         <% end %>
+      </tbody>
+   </table>
 </div>
 <% end %>

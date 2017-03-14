@@ -1,50 +1,54 @@
-<div class="col-md-12 col-sm-12">
-<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-   <h1>Form Stok</h1>
-   <div class="panel panel-default">
-   <!-- Default panel contents -->
-      <div class="panel-body">
+<div class="container">
+   <div class="row">
+      <div class="col-md-12 col-sm-12">
+         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+            <h1>Form Stok</h1>
+            <div class="panel panel-default">
+            <!-- Default panel contents -->
+               <div class="panel-body">
 
-         <div class="col-md-9 col-sm-9">
-            <div class="thumbnail thumbnail-form">
-               <%= image_tag @stok.gambar_url(:thumb), id: "image-preview" %>
-            </div>
+                  <div class="col-md-9 col-sm-9">
+                     <div class="thumbnail thumbnail-form">
+                        <%= image_tag @stok.gambar_url(:thumb), id: "image-preview" %>
+                     </div>
 
-            <%= form_for(@stok) do |s| %>
-            <!-- error explanation-->
-            <div class="form-group">
-               <%= s.label :gambar, class: "control-label"%>
-               <%= s.hidden_field :gambar_cache %>
-               <%= s.file_field :gambar, id: "image-source", onchange: "previewImage();"%>
-               <p class="form-text text-muted">
-                  File gambar harus berekstensi jpg, jpeg atau png.
-               </p>
-            </div>
-            <div class="form-group">
-               <%= s.label :nama, class: "control-label"%>
-               <%= s.text_field :nama, class: "form-control" %>
-            </div>
+                     <%= form_for(@stok) do |s| %>
+                     <!-- error explanation-->
+                     <div class="form-group">
+                        <%= s.label :gambar, class: "control-label"%>
+                        <%= s.hidden_field :gambar_cache %>
+                        <%= s.file_field :gambar, id: "image-source", onchange: "previewImage();"%>
+                        <p class="form-text text-muted">
+                           File gambar harus berekstensi jpg, jpeg atau png.
+                        </p>
+                     </div>
+                     <div class="form-group">
+                        <%= s.label :nama, class: "control-label"%>
+                        <%= s.text_field :nama, class: "form-control" %>
+                     </div>
 
-            <div class="form-group">
-               <%= s.label :harga_beli, class: "control-label"%>
-               <%= s.text_field :harga_beli, min: 0, class: "form-control" %>
+                     <div class="form-group">
+                        <%= s.label :harga_beli, class: "control-label"%>
+                        <%= s.text_field :harga_beli, min: 0, class: "form-control" %>
+                     </div>
+                     <div class="form-group">
+                        <%= s.label :harga_jual, class: "control-label"%>
+                        <%= s.text_field :harga_jual, min: 0, class: "form-control" %>
+                     </div>
+                     <div class="form-group">
+                        <%= s.label :jumlah, class: "control-label"%>
+                        <%= s.number_field :jumlah, min: 0, class: "form-control" %>
+                     </div>
+                     <div class="form-group">
+                        <%= s.label :kategori_id, class: "control-label"%>
+                        <%= s.collection_select 'kategori_id', Kategori.all, :id, :nama, {prompt: "Silahkan pilih Kategori"}, {class: "form-control"} %>
+                     </div>
+                        <%= s.submit "Simpan", class: "btn btn-default btn-lg" %>
+                     <% end %>
+                  </div>
+               </div>
             </div>
-            <div class="form-group">
-               <%= s.label :harga_jual, class: "control-label"%>
-               <%= s.text_field :harga_jual, min: 0, class: "form-control" %>
-            </div>
-            <div class="form-group">
-               <%= s.label :jumlah, class: "control-label"%>
-               <%= s.number_field :jumlah, min: 0, class: "form-control" %>
-            </div>
-            <div class="form-group">
-               <%= s.label :kategori_id, class: "control-label"%>
-               <%= s.collection_select 'kategori_id', Kategori.all, :id, :nama, {prompt: "Silahkan pilih Kategori"}, {class: "form-control"} %>
-            </div>
-               <%= s.submit "Simpan", class: "btn btn-default btn-lg" %>
-            <% end %>
-         </div>
+         </div><!-- col-md-12 -->
       </div>
    </div>
-</div><!-- col-md-12 -->
 </div>

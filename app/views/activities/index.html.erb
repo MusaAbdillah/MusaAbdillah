@@ -1,42 +1,46 @@
 <div class="container">
-   <h1>Aktifitas pengguna</h1>
-   <table class="table table-bordered table-condensed sortable">
-      <thead>
-         <tr>
-            <th><Aktifitas</th>
-         </tr>
-      </thead>
-      <tbody>
-         <% @activities.each do |activity| %>
-         <tr>
-            <td valign="top">
-               <% if activity.owner.present? %>
-                  <h5>
-                     <b><%= activity.owner.email %></b>
-                  </h5>
-                  <%= render_activity activity %>
-               <%  else %>
-                  <%= render_activity activity %>
+   <div class="row">
+      <div class="col-md-12 col-sm-12">
+         <h1>Aktifitas pengguna</h1>
+         <table class="table table-bordered table-condensed sortable">
+            <thead>
+               <tr>
+                  <th><Aktifitas</th>
+               </tr>
+            </thead>
+            <tbody>
+               <% @activities.each do |activity| %>
+               <tr>
+                  <td valign="top">
+                     <% if activity.owner.present? %>
+                        <h5>
+                           <b><%= activity.owner.email %></b>
+                        </h5>
+                        <%= render_activity activity %>
+                     <%  else %>
+                        <%= render_activity activity %>
+                     <% end %>
+                  </td>
+               </tr>
                <% end %>
-            </td>
-         </tr>
-         <% end %>
-      </tbody>
-      <tfoot>
-         <tr>
-            <td colspan="3"></td>
-         </tr>
-      </tfoot>
-   </table>
+            </tbody>
+            <tfoot>
+               <tr>
+                  <td colspan="3"></td>
+               </tr>
+            </tfoot>
+         </table>
 
-   <nav class="pagination pull-right">
-      <ul class="pagination-xs">
-         <nav aria-label="...">
-            <ul class="pager">
-               <li><%= link_to_previous_page (@activities),'Sebelumnya' %></li>
-               <li><%= link_to_next_page (@activities),'Selanjutnya' %></li>
+         <nav class="pagination pull-right">
+            <ul class="pagination-xs">
+               <nav aria-label="...">
+                  <ul class="pager">
+                     <li><%= link_to_previous_page (@activities),'Sebelumnya' %></li>
+                     <li><%= link_to_next_page (@activities),'Selanjutnya' %></li>
+                  </ul>
+               </nav>
             </ul>
          </nav>
-      </ul>
-   </nav>
+      </div>
+   </div>
 </div>

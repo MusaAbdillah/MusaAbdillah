@@ -1,34 +1,38 @@
 <!-- form -->
-<div class="col-md-12 col-sm-12">
-<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-   <h1>Form Kategori</h1>
-   <div class="panel panel-default">
-    <!-- Default panel contents -->
-      <div class="panel-body">
-         <div class="col-md-8">
-            <%= render 'shared/error_messages', :object => @kategori %>
-            <div class="thumbnail thumbnail-form">
-               <%= image_tag @kategori.gambar_url(:thumb), id: "image-preview" %>
+<div class="container">
+   <div class="row">
+      <div class="col-md-12 col-sm-12">
+         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+            <h1>Form Kategori</h1>
+            <div class="panel panel-default">
+             <!-- Default panel contents -->
+               <div class="panel-body">
+                  <div class="col-md-8">
+                     <%= render 'shared/error_messages', :object => @kategori %>
+                     <div class="thumbnail thumbnail-form">
+                        <%= image_tag @kategori.gambar_url(:thumb), id: "image-preview" %>
+                     </div>
+                     <%= form_for(@kategori) do |k| %>
+                     <!-- error explanation-->
+                     <div class="form-group">
+                        <%= k.label :gambar, class: "control-label"%>
+                        <%= k.hidden_field :gambar_cache %>
+                        <%= k.file_field :gambar, id: "image-source", onchange: "previewImage();" %>
+                     </div>
+                     <div class="form-group">
+                        <%= k.label :nama, class: "control-label"%>
+                        <%= k.text_field :nama, class: "form-control" %>
+                     </div>
+                     <div class="form-group">
+                        <%= k.label :deskripsi, class: "control-label"%>
+                        <%= k.text_area :deskripsi, size: "25x10", class: "form-control" %>
+                     </div>
+                        <%= k.submit "Simpan", class: "btn btn-default btn-lg" %>
+                     <% end %>
+                  </div>
+               </div>
             </div>
-            <%= form_for(@kategori) do |k| %>
-            <!-- error explanation-->
-            <div class="form-group">
-               <%= k.label :gambar, class: "control-label"%>
-               <%= k.hidden_field :gambar_cache %>
-               <%= k.file_field :gambar, id: "image-source", onchange: "previewImage();" %>
-            </div>
-            <div class="form-group">
-               <%= k.label :nama, class: "control-label"%>
-               <%= k.text_field :nama, class: "form-control" %>
-            </div>
-            <div class="form-group">
-               <%= k.label :deskripsi, class: "control-label"%>
-               <%= k.text_area :deskripsi, size: "25x10", class: "form-control" %>
-            </div>
-               <%= k.submit "Simpan", class: "btn btn-default btn-lg" %>
-            <% end %>
-         </div>
+         </div><!-- col-md-12 -->
       </div>
    </div>
-</div><!-- col-md-12 -->
 </div>
