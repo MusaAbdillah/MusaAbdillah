@@ -7,8 +7,8 @@
                   <th colspan="3">
                      <h1><b> AB COMPUTER </b></h1>
                      <h4>
-                         <span class="glyphicon glyphicon-phone-alt"></span> 0858 8371 8464<br/>
-                         <span class="glyphicon glyphicon-envelope"></span> musaabdillahm9@gmail.com <br/>
+                        <span class="glyphicon glyphicon-phone-alt"></span> 0858 8371 8464<br/>
+                        <span class="glyphicon glyphicon-envelope"></span> musaabdillahm9@gmail.com <br/>
                         <span class="glyphicon glyphicon-home"></span> Kradenan Gang 5 No 495 Pekalongan
                      </h4>
                      <p><%= @service.line %></p>
@@ -39,7 +39,7 @@
                <tr>
                   <td><h3 style="font-weight: bold;"> Total Biaya </h3></td>
                   <td><h3 style="font-weight: bold;"> : </h3></td>
-                  <td><h3 style="font-weight: bold;"> Rp <%= number_with_delimiter(@service.troubel.price) %> </h3></td>
+                  <td><h3 style="font-weight: bold;"> Rp <%= number_with_delimiter(@service.troubel.price, delimiter: '.') %> </h3></td>
                </tr>
             </tbody>
          </table>

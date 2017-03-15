@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  
   def index
     @orders = Order.page(params[:page]).per(5).order('created_at DESC')
   end

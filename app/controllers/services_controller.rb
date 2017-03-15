@@ -13,7 +13,7 @@ class ServicesController < ApplicationController
      respond_to do |format|
         format.html
         format.json
-        format.pdf { render pdf: 'show' }
+        format.pdf { render template: 'services/nota', pdf: 'nota' }
      end
 
   end

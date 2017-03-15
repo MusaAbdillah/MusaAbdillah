@@ -39,7 +39,7 @@
                <tr>
                   <td><h3 style="font-weight: bold;"> Total Biaya </h3></td>
                   <td><h3 style="font-weight: bold;"> : </h3></td>
-                  <td><h3 style="font-weight: bold;"> Rp <%= number_with_delimiter(@service.troubel.price) %> </h3></td>
+                  <td><h3 style="font-weight: bold;"> Rp <%= number_with_delimiter(@service.troubel.price, delimiter: '.') %> </h3></td>
                </tr>
             </tbody>
             <tfoot>
