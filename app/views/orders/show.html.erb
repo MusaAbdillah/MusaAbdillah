@@ -36,7 +36,9 @@
                </tbody>
             </table>
          </div>
-         <%= link_to "Belanja Lagi Sekarang!", stoks_path, class: "btn btn-lg btn-danger pull-right" %>
+         <%= button_to stoks_path(@stok),method: :get, class: "btn btn-lg btn-danger pull-right" do %>
+            <i class="glyphicon glyphicon-shopping-cart"></i> Belanja Lagi
+            <% end %>
       </div>
    </div>
 </div>

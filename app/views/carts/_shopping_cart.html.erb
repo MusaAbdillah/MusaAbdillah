@@ -5,20 +5,27 @@
             <li><%= msg %></li>
             <% end %>
       </ul>
-  </div>
+   </div>
 <% end %>
 
 <% if @order_items.size == 0 %>
-   <p class="text-center">
-      Anda tidak mempunyai produk yang di tambahkan ke keranjang.<br/><br/>
-      <%= link_to "Belanja Sekarang", stoks_path(@stok), class: "btn btn-lg btn-danger"%>
-   </p>
+
+   <div class="text-center">
+      <h4>Anda tidak mempunyai produk yang di tambahkan ke keranjang.</h4><br/>
+      <%= button_to stoks_path(@stok),method: :get, class: "btn btn-lg btn-danger" do %>
+         <i class="glyphicon glyphicon-shopping-cart"></i> Belanja Sekarang
+         <% end %>
+   </div>
 <% else %>
    <div class="container">
       <% @order_items.each do |order_item| %>
          <%= render 'carts/cart_row', stok: order_item.stok, order_item: order_item, show_total: true %>
       <% end %>
-      <%= link_to "Selesaikan Transaksi", check_out_route_path, class: "btn btn-default"%>
-      <%= link_to "Belanja Lagi", stoks_path(@stok), class: "btn btn-danger"%>
+      <%= button_to "Selesaikan Transaksi", check_out_route_path, method: :get, class: "btn btn-lg btn-success pull-left"%>
+
+         <%= button_to stoks_path(@stok),method: :get, class: "btn btn-lg btn-danger pull-right" do %>
+            <i class="glyphicon glyphicon-shopping-cart"></i> Belanja Lagi
+            <% end %>
+
    </div>
 <% end %>

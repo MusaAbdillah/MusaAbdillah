@@ -37,7 +37,7 @@
                      <%= r.nama %>
                   </td>
                   <td>
-                     <%= link_to role_path(r), method: :delete, data: {confirm: "Apakah anda yakin ingin menghapus role ini?"}, class:"btn btn-default" do %>
+                     <%= button_to role_path(r), method: :delete, data: {confirm: "Apakah anda yakin ingin menghapus role ini?"}, class:"btn btn-danger" do %>
                         <i class="glyphicon glyphicon-trash"></i>  Hapus
                         <% end %>
                   </td>

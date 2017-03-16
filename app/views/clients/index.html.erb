@@ -33,7 +33,7 @@
               <% end %>
             </td>
             <td>
-               <%= link_to client_path(c), method: :delete, data: { confirm: 'apakah anda yakin ingin menghapus klient ini?' }, class: "btn btn-default" do %>
+               <%= button_to client_path(c), method: :delete, data: { confirm: 'apakah anda yakin ingin menghapus klient ini?' }, class: "btn btn-danger" do %>
                <i class="glyphicon glyphicon-trash"></i>  Hapus
               <% end %>
             </td>

@@ -37,7 +37,7 @@
                     <% end %>
                   </td>
                   <td>
-                     <%= link_to service_path(s), method: :delete, data: { confirm: 'Apakah anda yakin ingin menghapus servis ini?' }, class: "btn btn-default" do %>
+                     <%= button_to service_path(s), method: :delete, data: { confirm: 'Apakah anda yakin ingin menghapus servis ini?' }, class: "btn btn-danger" do %>
                      <i class="glyphicon glyphicon-trash"></i> Hapus
                     <% end %>
                   </td>
