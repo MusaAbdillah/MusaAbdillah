@@ -9,12 +9,14 @@
 			<%= @kategori.nama %>
 		</h1>
 		<% if can? :update?, Kategori %>
-			<%= link_to edit_kategori_path(@kategori),class: "btn btn-default btn-sm" do %>
-					<i class="glyphicon glyphicon-wrench"></i>
-					<% end %>
-				<%= button_to @kategoris,method: :delete, data: {confirm: "Apakah anda yakin akan menghapus produk #{@kategori.nama} ?"}, class: "btn btn-denger btn-sm" do %>
+			<div class="btn-group">
+				<%= button_to edit_kategori_path(@kategori),method: :get, class: "btn btn-default" do %>
+					<i class="glyphicon glyphicon-wrench"></i> Ubah
+					<% end %><br>
+				<%= button_to @kategoris,method: :delete, data: {confirm: "Apakah anda yakin akan menghapus produk #{@kategori.nama} ?"}, class: "btn btn-danger" do %>
 					<i class="glyphicon glyphicon-trash"></i> Hapus
 					<% end %>
+			</div>
 		<% end %>
 		<p><small><%= @kategori.deskripsi %></small> </p>
 	</div>

@@ -1,6 +1,6 @@
 <div class="container">
    <div class="row">
-      <div class="col-md-12 col-sm-12">         
+      <div class="col-md-12 col-sm-12">
          <h1>Daftar Permasalah Servis</h1>
          <table class="table table-bordered">
            <thead>
@@ -30,7 +30,7 @@
                      <% end %>
                   </td>
                   <td>
-                     <%= link_to troubel_path(t), method: :delete, data: { confirm: 'Apakah anda yakin ingin menghapus ini?' }, class: "btn btn-default" do %>
+                     <%= button_to troubel_path(t), method: :delete, data: { confirm: 'Apakah anda yakin ingin menghapus ini?' }, class: "btn btn-danger" do %>
                      <i class="glyphicon glyphicon-trash"></i> Hapus
                     <% end %>
                   </td>
