@@ -2,18 +2,19 @@
       <div class="table-responsive">
          <table class="table table-condensed table-resposive">
             <tbody>
-               <td class="col-md-6 col-sm-6">
+               <td class="col-md-1 col-sm-1"> <%= image_tag stok.gambar_url(:thumb) %> </td>
+               <td class="col-md-5 col-sm-5">
                   <h4><%= stok.nama %></h4>
                   <h4>Harga Satuan: <span style="color: #e60000;">Rp <%= number_with_delimiter(order_item.unit_price, :delimiter => '.') %></span></h4>
                </td>
                <td class="col-md-6 col-sm-6">
                         <div class="row">
                            <%= form_for order_item, remote: true do |f| %>
-                           <div class="col-md-4 col-sm-4">
+                           <div class="col-md-6 col-sm-6">
                               <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1 %>
                               <%= f.hidden_field :stok_id, value: stok.id %>
                            </div>
-                           <div class="col-md-8 col-sm-8">
+                           <div class="col-md-6 col-sm-6">
                                  <%= f.submit "Perbarui Jumlah", class: "btn btn-default" %>
                                  <%= link_to "Hapus", order_item, data: { confirm: "Apakah anda yakin akan menghapus'#{order_item.stok.nama}' dari keranjang?"}, method: :delete, remote: true, class: "btn btn-danger" %>
                            </div>
